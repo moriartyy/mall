@@ -1,6 +1,6 @@
 package dmall.product.service.domain.product;
 
-import dmall.ddd.domain.Repository;
+import dmall.service.domain.Repository;
 
 /**
  * @author walter

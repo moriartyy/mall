@@ -1,6 +1,6 @@
 package dmall.product.service.application.assemblier;
 
-import dmall.product.service.application.dto.ProductInfo;
+import dmall.product.service.contract.dto.ProductInfo;
 import dmall.product.service.domain.product.Product;
 import dmall.product.service.domain.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
