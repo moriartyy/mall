@@ -9,18 +9,18 @@ import lombok.Getter;
  * @author walter
  */
 
-@ApiModel("API result model")
+@ApiModel(description = "API result model")
 @Getter
 @AllArgsConstructor
 public class ApiResult<T> {
 
-    @ApiModelProperty(value = "status")
+    @ApiModelProperty(value = "Status", dataType = "Integer", position = 0)
     private ApiStatus status;
-    @ApiModelProperty(value = "Message")
+    @ApiModelProperty(value = "Message", position = 1)
     private String message;
-    @ApiModelProperty(value = "Data")
+    @ApiModelProperty(value = "Data", position = 2)
     private T data;
-    @ApiModelProperty(value = "Error")
+    @ApiModelProperty(value = "Error", position = 3)
     private ApiError error;
 
 

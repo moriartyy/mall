@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 /**
  * @author walter
  */
-@ApiModel("API error model")
+@ApiModel(description = "API Error")
 @Getter
 @RequiredArgsConstructor
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)

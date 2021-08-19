@@ -4,6 +4,7 @@ import dmall.service.contract.api.ApiError;
 import dmall.service.contract.api.ApiException;
 import dmall.service.contract.api.ApiResult;
 import dmall.service.contract.api.ApiStatus;
+import io.swagger.annotations.Api;
 import lombok.Getter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 /**
  * @author walter
  */
+@Api("Test")
 @RestController
 public class TestController {
 
