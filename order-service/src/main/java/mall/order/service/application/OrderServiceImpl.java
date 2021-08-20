@@ -1,8 +1,8 @@
 package mall.order.service.application;
 
-import mall.order.service.contract.OrderService;
-import mall.order.service.contract.dto.OrderGetParams;
-import mall.order.service.contract.dto.OrderInfo;
+import mall.order.service.api.OrderService;
+import mall.order.service.api.dto.OrderGetParams;
+import mall.order.service.api.dto.OrderInfo;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

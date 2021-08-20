@@ -1,7 +1,7 @@
-package mall.order.service.contract;
+package mall.order.service.api;
 
-import mall.order.service.contract.dto.OrderGetParams;
-import mall.order.service.contract.dto.OrderInfo;
+import mall.order.service.api.dto.OrderGetParams;
+import mall.order.service.api.dto.OrderInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**

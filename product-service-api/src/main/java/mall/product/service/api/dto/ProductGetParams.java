@@ -1,4 +1,4 @@
-package mall.order.service.contract.dto;
+package mall.product.service.api.dto;
 
 import lombok.Data;
 
@@ -6,6 +6,6 @@ import lombok.Data;
  * @author walter
  */
 @Data
-public class OrderGetParams {
+public class ProductGetParams {
     private Integer id;
 }

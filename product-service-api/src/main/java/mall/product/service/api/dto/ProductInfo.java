@@ -1,4 +1,4 @@
-package mall.product.service.contract.dto;
+package mall.product.service.api.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

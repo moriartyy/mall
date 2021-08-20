@@ -9,9 +9,9 @@
     <modules>
         <module>web</module>
         <module>rpc</module>
-        <module>product-contract</module>
+        <module>product-service-api</module>
         <module>product-service</module>
-        <module>order-contract</module>
+        <module>order-service-api</module>
         <module>order-service</module>
         <module>common</module>
         <module>core</module>

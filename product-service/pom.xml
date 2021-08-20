@@ -12,7 +12,7 @@
     <dependencies>
         <dependency>
             <groupId>org.moriartyy</groupId>
-            <artifactId>product-contract</artifactId>
+            <artifactId>product-service-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>org.moriartyy</groupId>
-            <artifactId>order-contract</artifactId>
+            <artifactId>order-service-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
