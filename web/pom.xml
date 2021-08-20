@@ -8,12 +8,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>order-contract</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>org.moriartyy</groupId>
-            <artifactId>web-service-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <artifactId>web</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>web-service-api</module>
+        <module>web-service</module>
+    </modules>
 </project>

@@ -17,7 +17,7 @@
         </dependency>
         <dependency>
             <groupId>org.moriartyy</groupId>
-            <artifactId>service-common</artifactId>
+            <artifactId>web-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -26,8 +26,9 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <groupId>org.moriartyy</groupId>
+            <artifactId>infrastructure-rocketmq</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
