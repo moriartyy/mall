@@ -1,6 +1,6 @@
 package mall.product.service.domain.product;
 
-import mall.service.common.domain.Repository;
+import mall.core.domain.Repository;
 
 /**
  * @author walter

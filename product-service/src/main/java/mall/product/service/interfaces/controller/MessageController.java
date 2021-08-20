@@ -2,9 +2,9 @@ package mall.product.service.interfaces.controller;
 
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import mall.contract.common.api.ApiResult;
-import mall.contract.common.event.Event;
+import mall.common.model.Event;
 import mall.product.service.application.MessageManager;
+import mall.web.service.api.result.ApiResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

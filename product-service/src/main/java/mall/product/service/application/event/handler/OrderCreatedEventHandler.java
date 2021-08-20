@@ -2,9 +2,9 @@ package mall.product.service.application.event.handler;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import mall.core.eventing.EventHandler;
 import mall.order.service.contract.event.OrderCreatedEvent;
 import mall.product.service.application.MessageManager;
-import mall.service.common.event.EventHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

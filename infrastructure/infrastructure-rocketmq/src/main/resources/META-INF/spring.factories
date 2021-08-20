@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-mall.service.common.infrastructure.rocketmq.RocketMQConfig
+mall.infrastructure.rocketmq.RocketMQConfig
