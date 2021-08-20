@@ -16,6 +16,7 @@
         <module>common</module>
         <module>core</module>
         <module>infrastructure</module>
+        <module>dictionary</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
