@@ -15,6 +15,7 @@
         <module>dictionary</module>
         <module>order</module>
         <module>product</module>
+        <module>gateway</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
