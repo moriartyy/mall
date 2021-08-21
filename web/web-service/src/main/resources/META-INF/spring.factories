@@ -1,4 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 mall.web.service.config.ApiConfig, \
-RocketMQConfig, \
 mall.web.service.config.SwaggerConfig

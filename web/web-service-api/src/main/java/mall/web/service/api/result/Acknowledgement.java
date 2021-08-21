@@ -1,13 +1,17 @@
-package mall.common.model;
+package mall.web.service.api.result;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 
 /**
  * @author hongmiao.yu
  */
+@ApiModel(description = "Acknowledgement")
 @Getter
 public class Acknowledgement {
 
+    @ApiModelProperty(value = "Acknowledged")
     private final String acknowledged;
 
     private Acknowledgement(String acknowledged) {

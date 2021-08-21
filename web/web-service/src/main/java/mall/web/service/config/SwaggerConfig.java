@@ -6,7 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
-import mall.web.service.api.result.ApiError;
+import mall.common.model.Error;
 import mall.web.service.api.result.ApiResult;
 import mall.web.service.api.result.ApiStatus;
 import org.springframework.beans.BeansException;
@@ -70,7 +70,7 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
         @ApiModelProperty(value = "Data", position = 2)
         private T data;
         @ApiModelProperty(value = "Error", position = 3)
-        private ApiError error;
+        private Error error;
     }
 
     private List<Response> getGlobalResponses() {

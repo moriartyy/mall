@@ -1,6 +1,8 @@
 package mall.web.service.config;
 
 import lombok.extern.slf4j.Slf4j;
+import mall.common.exception.BusinessException;
+import mall.common.exception.SystemException;
 import mall.web.service.api.exception.ApiException;
 import mall.web.service.api.result.ApiResult;
 import mall.web.service.api.result.ApiStatus;
@@ -50,6 +52,18 @@ public class ApiExceptionHandler {
     @ExceptionHandler
     public Object handle(ConstraintViolationException e) {
         return ApiResult.fail(ApiStatus.INVALID_PARAMETER, ExceptionUtils.buildMessage(e));
+    }
+
+    @ResponseBody
+    @ExceptionHandler
+    public Object handle(BusinessException e) {
+        return ApiResult.fail(ApiStatus.BUSINESS_ERROR, e.getMessage(), e.getError());
+    }
+
+    @ResponseBody
+    @ExceptionHandler
+    public Object handle(SystemException e) {
+        return ApiResult.fail(ApiStatus.SYSTEM_ERROR, e.getMessage(), e.getError());
     }
 
     @ResponseBody
