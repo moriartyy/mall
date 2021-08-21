@@ -1,4 +1,4 @@
-package mall.web.service.api.result;
+package mall.web.service.api;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;

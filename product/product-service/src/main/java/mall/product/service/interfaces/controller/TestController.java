@@ -4,9 +4,9 @@ import io.swagger.annotations.Api;
 import lombok.Getter;
 import mall.common.exception.BusinessException;
 import mall.common.exception.SystemException;
-import mall.web.service.api.result.ApiError;
-import mall.web.service.api.result.ApiResult;
-import mall.web.service.api.result.ApiStatus;
+import mall.web.service.api.ApiError;
+import mall.web.service.api.ApiResult;
+import mall.web.service.api.ApiStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

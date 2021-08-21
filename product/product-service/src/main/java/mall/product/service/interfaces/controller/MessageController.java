@@ -4,7 +4,7 @@ import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import mall.common.model.Event;
 import mall.product.service.application.MessageManager;
-import mall.web.service.api.result.ApiResult;
+import mall.web.service.api.ApiResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

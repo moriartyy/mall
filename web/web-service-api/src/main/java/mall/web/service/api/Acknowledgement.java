@@ -1,4 +1,4 @@
-package mall.web.service.api.result;
+package mall.web.service.api;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
