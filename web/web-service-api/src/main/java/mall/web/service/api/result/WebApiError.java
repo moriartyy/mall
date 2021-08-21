@@ -14,17 +14,17 @@ import mall.common.model.Error;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ApiError {
+public class WebApiError {
 
-    public static final ApiError UNKNOWN = new ApiError(null, "UNKNOWN");
+    public static final WebApiError UNKNOWN = new WebApiError(null, "UNKNOWN");
 
     @ApiModelProperty(value = "Error Code")
     private Integer code;
     @ApiModelProperty(value = "Error Message")
     private String message;
 
-    public static ApiError from(Error error) {
-        return new ApiError(error.getCode(), error.getMessage());
+    public static WebApiError from(Error error) {
+        return new WebApiError(error.getCode(), error.getMessage());
     }
 
 }

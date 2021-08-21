@@ -7,8 +7,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import mall.common.model.Error;
-import mall.web.service.api.result.ApiResult;
-import mall.web.service.api.result.ApiStatus;
+import mall.web.service.api.result.WebApiResult;
+import mall.web.service.api.result.WebApiStatus;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.EnvironmentAware;
@@ -54,7 +54,7 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
                 .build()
                 .globalResponses(HttpMethod.GET, getGlobalResponses())
                 .globalResponses(HttpMethod.POST, getGlobalResponses())
-                .genericModelSubstitutes(ApiResult.class)
+                .genericModelSubstitutes(WebApiResult.class)
 //                .additionalModels(typeResolver.resolve(ApiResultModel.class))
                 ;
 
@@ -64,7 +64,7 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
     @ApiModel("ApiResult")
     public static class ApiResultModel<T> {
         @ApiModelProperty(value = "Status", dataType = "int", position = 0)
-        private ApiStatus status;
+        private WebApiStatus status;
         @ApiModelProperty(value = "Message", position = 1)
         private String message;
         @ApiModelProperty(value = "Data", position = 2)
@@ -143,8 +143,8 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
         @Override
         public ResolvedType methodReturnType(HandlerMethod handlerMethod) {
             ResolvedType returnType = super.methodReturnType(handlerMethod);
-            if (returnType.getErasedType() != ApiResult.class) {
-                return typeResolver.resolve(ApiResult.class, returnType);
+            if (returnType.getErasedType() != WebApiResult.class) {
+                return typeResolver.resolve(WebApiResult.class, returnType);
             }
             return returnType;
         }

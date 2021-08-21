@@ -19,7 +19,7 @@ import java.util.List;
  * @author walter
  */
 @Configuration
-public class ApiConfig implements WebMvcConfigurer, BeanFactoryAware {
+public class WebApiConfig implements WebMvcConfigurer, BeanFactoryAware {
 
     private BeanFactory beanFactory;
 
@@ -37,13 +37,13 @@ public class ApiConfig implements WebMvcConfigurer, BeanFactoryAware {
     }
 
     @Bean
-    public ApiResponseBodyWrapper apiResponseBodyWrapper() {
-        return new ApiResponseBodyWrapper();
+    public WebApiResponseBodyWrapper webApiResponseBodyWrapper() {
+        return new WebApiResponseBodyWrapper();
     }
 
     @Bean
-    public ApiExceptionHandler apiExceptionHandler() {
-        return new ApiExceptionHandler();
+    public WebApiExceptionHandler webApiExceptionHandler() {
+        return new WebApiExceptionHandler();
     }
 
     @Override

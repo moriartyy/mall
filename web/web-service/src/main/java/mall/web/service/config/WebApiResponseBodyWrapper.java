@@ -1,7 +1,7 @@
 package mall.web.service.config;
 
 import mall.core.util.JsonUtils;
-import mall.web.service.api.result.ApiResult;
+import mall.web.service.api.result.WebApiResult;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @author walter
  */
 @ControllerAdvice(basePackages = "mall")
-public class ApiResponseBodyWrapper implements ResponseBodyAdvice<Object> {
+public class WebApiResponseBodyWrapper implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
@@ -25,7 +25,7 @@ public class ApiResponseBodyWrapper implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
 
-        Object result = (body instanceof ApiResult) ? body : ApiResult.success(body);
+        Object result = (body instanceof WebApiResult) ? body : WebApiResult.success(body);
 
         if (selectedConverterType == StringHttpMessageConverter.class) {
             result = JsonUtils.serializeToString(result);

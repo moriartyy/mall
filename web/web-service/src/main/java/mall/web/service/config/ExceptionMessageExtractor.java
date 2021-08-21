@@ -14,16 +14,16 @@ import java.util.stream.Collectors;
 /**
  * @author hongmiao.yu
  */
-public class ExceptionUtils {
+public class ExceptionMessageExtractor {
 
-    private ExceptionUtils() {
+    private ExceptionMessageExtractor() {
     }
 
-    public static String buildMessage(MethodArgumentNotValidException e) {
-        return buildMessage(e.getBindingResult());
+    public static String extract(MethodArgumentNotValidException e) {
+        return extract(e.getBindingResult());
     }
 
-    public static String buildMessage(BindingResult bindingResult) {
+    public static String extract(BindingResult bindingResult) {
         List<String> errors = bindingResult.getAllErrors()
                 .stream()
                 .map(e -> {
@@ -41,7 +41,7 @@ public class ExceptionUtils {
         return CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
     }
 
-    public static String buildMessage(ConstraintViolationException e) {
+    public static String extract(ConstraintViolationException e) {
         List<String> errors = e.getConstraintViolations()
                 .stream()
                 .map(cv -> {
