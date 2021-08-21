@@ -8,13 +8,13 @@ import lombok.Getter;
 @Getter
 public abstract class ServiceException extends RuntimeException {
 
-    private Integer errorCode;
+    private int errorCode;
 
     protected ServiceException(String message) {
         super(message);
     }
 
-    protected ServiceException(Integer errorCode, String message) {
+    protected ServiceException(int errorCode, String message) {
         super(message);
         this.errorCode = errorCode;
     }
