@@ -1,7 +1,6 @@
 package mall.common.exception;
 
 import lombok.Getter;
-import mall.common.model.Error;
 
 /**
  * @author walter
@@ -9,14 +8,14 @@ import mall.common.model.Error;
 @Getter
 public abstract class ServiceException extends RuntimeException {
 
-    private Error error;
+    private Integer errorCode;
 
     protected ServiceException(String message) {
         super(message);
     }
 
-    protected ServiceException(String message, Error error) {
+    protected ServiceException(Integer errorCode, String message) {
         super(message);
-        this.error = error;
+        this.errorCode = errorCode;
     }
 }

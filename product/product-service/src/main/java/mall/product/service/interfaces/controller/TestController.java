@@ -2,10 +2,11 @@ package mall.product.service.interfaces.controller;
 
 import io.swagger.annotations.Api;
 import lombok.Getter;
-import mall.web.service.api.exception.WebApiException;
-import mall.web.service.api.result.WebApiError;
-import mall.web.service.api.result.WebApiResult;
-import mall.web.service.api.result.WebApiStatus;
+import mall.common.exception.BusinessException;
+import mall.common.exception.SystemException;
+import mall.web.service.api.result.ApiError;
+import mall.web.service.api.result.ApiResult;
+import mall.web.service.api.result.ApiStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,21 +38,21 @@ public class TestController {
 
     @GetMapping(path = "result1")
     public Object result1() {
-        return WebApiResult.fail(WebApiStatus.BUSINESS_ERROR, "INTERNAL_ERROR", WebApiError.UNKNOWN);
+        return ApiResult.fail(ApiStatus.BUSINESS_ERROR, "INTERNAL_ERROR", ApiError.UNKNOWN);
     }
 
     @GetMapping(path = "result2")
     public Object result2() {
-        return WebApiResult.fail(WebApiStatus.SYSTEM_ERROR, "INTERNAL_ERROR", Greeting.of("Whoops"), WebApiError.UNKNOWN);
+        return ApiResult.fail(ApiStatus.SYSTEM_ERROR, "INTERNAL_ERROR", Greeting.of("Whoops"), ApiError.UNKNOWN);
     }
 
     @GetMapping(path = "exp1")
     public Object throwExp1() {
-        throw new WebApiException(WebApiStatus.SYSTEM_ERROR);
+        throw new SystemException("SystemException");
     }
 
     @GetMapping(path = "exp2")
     public Object throwExp2() {
-        throw new WebApiException(WebApiStatus.BUSINESS_ERROR, "INTERNAL_ERROR", WebApiError.UNKNOWN);
+        throw new BusinessException("BusinessException");
     }
 }

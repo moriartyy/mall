@@ -1,7 +1,5 @@
 package mall.common.exception;
 
-import mall.common.model.Error;
-
 /**
  * @author walter
  */
@@ -11,7 +9,7 @@ public class SystemException extends ServiceException {
         super(message);
     }
 
-    public SystemException(String message, Error error) {
-        super(message, error);
+    public SystemException(Integer errorCode, String message) {
+        super(errorCode, message);
     }
 }

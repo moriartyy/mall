@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public enum WebApiStatus {
+public enum ApiStatus {
     OK(200, "OK"),
     UNAUTHORIZED(300, "UNAUTHORIZED"),
     BAD_REQUEST(400, "BAD_REQUEST"),

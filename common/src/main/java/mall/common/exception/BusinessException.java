@@ -1,8 +1,6 @@
 package mall.common.exception;
 
 
-import mall.common.model.Error;
-
 /**
  * @author walter
  */
@@ -12,7 +10,7 @@ public class BusinessException extends ServiceException {
         super(message);
     }
 
-    public BusinessException(String message, Error error) {
-        super(message, error);
+    public BusinessException(Integer errorCode, String message) {
+        super(errorCode, message);
     }
 }

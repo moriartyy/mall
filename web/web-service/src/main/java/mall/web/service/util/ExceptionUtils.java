@@ -1,4 +1,4 @@
-package mall.web.service.config;
+package mall.web.service.util;
 
 import com.google.common.base.CaseFormat;
 import org.springframework.validation.BindingResult;
@@ -14,16 +14,16 @@ import java.util.stream.Collectors;
 /**
  * @author hongmiao.yu
  */
-public class ExceptionMessageExtractor {
+public class ExceptionUtils {
 
-    private ExceptionMessageExtractor() {
+    private ExceptionUtils() {
     }
 
-    public static String extract(MethodArgumentNotValidException e) {
-        return extract(e.getBindingResult());
+    public static String buildMessage(MethodArgumentNotValidException e) {
+        return buildMessage(e.getBindingResult());
     }
 
-    public static String extract(BindingResult bindingResult) {
+    public static String buildMessage(BindingResult bindingResult) {
         List<String> errors = bindingResult.getAllErrors()
                 .stream()
                 .map(e -> {
@@ -41,7 +41,7 @@ public class ExceptionMessageExtractor {
         return CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
     }
 
-    public static String extract(ConstraintViolationException e) {
+    public static String buildMessage(ConstraintViolationException e) {
         List<String> errors = e.getConstraintViolations()
                 .stream()
                 .map(cv -> {
