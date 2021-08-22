@@ -12,8 +12,9 @@ import org.hibernate.validator.constraints.Length;
 /**
 *  @author Walter
 */
+@ApiModel("${tableClass.remark!}")
 @Data
-public class ${tableClass.shortClassName}Info {
+public class ${baseInfo.fileName} {
 
 <#list tableClass.allFields as field>
     /**

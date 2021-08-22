@@ -2,7 +2,7 @@ package ${baseInfo.packageName};
 
 import lombok.RequiredArgsConstructor;
 import ${tableClass.fullClassName};
-import ${repositoryImpl.packageName}.${repositoryImpl.fileName};
+import ${repository.packageName}.${repository.fileName};
 import ${mapperInterface.packageName}.${mapperInterface.fileName};
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 */
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class ${baseInfo.fileName} implements ${tableClass.shortClassName}Repository {
+public class ${baseInfo.fileName} implements ${repository.fileName} {
 
 private final ${mapperName} ${mapperNameLower};
 
