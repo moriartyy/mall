@@ -1,7 +1,5 @@
 package mall.data.dictionary.service.infrastructure.mysql.mapper;
 
-import mall.core.util.JsonUtils;
-import mall.data.dictionary.service.infrastructure.mysql.entity.DictionaryPO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,8 +29,8 @@ class DictionaryMapperTest {
 //        this.dictionaryMapper.insert(dicSex);
 //        System.out.println(dicSex.getId());
 
-        DictionaryPO dictionaryPO = this.dictionaryMapper.selectOneByCreatedBy("张三");
-        System.out.println(JsonUtils.serializeToString(dictionaryPO));
+//        DictionaryPO dictionaryPO = this.dictionaryMapper.selectOneByCreatedBy("张三");
+//        System.out.println(JsonUtils.serializeToString(dictionaryPO));
 
     }
 }

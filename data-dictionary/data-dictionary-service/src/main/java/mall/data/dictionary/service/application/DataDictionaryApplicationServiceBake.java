@@ -6,7 +6,7 @@ import mall.data.dictionary.service.api.DataDictionaryService;
 import mall.data.dictionary.service.api.dto.DictionaryGetParams;
 import mall.data.dictionary.service.api.dto.DictionaryInfo;
 import mall.data.dictionary.service.domain.Dictionary;
-import mall.data.dictionary.service.domain.DictionaryRepository;
+import mall.data.dictionary.service.domain.DictionaryRepositoryBake;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +17,9 @@ import java.util.Optional;
  */
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class DataDictionaryApplicationService implements DataDictionaryService {
+public class DataDictionaryApplicationServiceBake implements DataDictionaryService {
 
-    private DictionaryRepository dictionaryRepository;
+    private DictionaryRepositoryBake dictionaryRepository;
 
     @Override
     public DictionaryInfo get(DictionaryGetParams dictionaryGetParams) {

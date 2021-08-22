@@ -5,6 +5,6 @@ import mall.core.domain.Repository;
 /**
  * @author walter
  */
-public interface DictionaryRepository extends Repository {
+public interface DictionaryRepositoryBake extends Repository {
     Dictionary getByCode(String code);
 }

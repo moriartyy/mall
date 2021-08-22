@@ -8,64 +8,16 @@
         <id property="id" column="id" jdbcType="INTEGER"/>
         <result property="code" column="code" jdbcType="VARCHAR"/>
         <result property="description" column="description" jdbcType="VARCHAR"/>
-        <result property="createdAt" column="createdAt" jdbcType="TIMESTAMP"/>
-        <result property="createdBy" column="createdBy" jdbcType="VARCHAR"/>
-        <result property="updatedAt" column="updatedAt" jdbcType="TIMESTAMP"/>
-        <result property="updatedBy" column="updatedBy" jdbcType="VARCHAR"/>
+        <result property="created_at" column="created_at" jdbcType="TIMESTAMP"/>
+        <result property="created_by" column="created_by" jdbcType="VARCHAR"/>
+        <result property="updated_at" column="updated_at" jdbcType="TIMESTAMP"/>
+        <result property="updated_by" column="updated_by" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id
         ,code,description,
-        createdAt,createdBy,updatedAt,
-        updatedBy
+        created_at,created_by,updated_at,
+        updated_by
     </sql>
-    <select id="selectOneByCode" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from Dictionary
-        where
-        code = #{code,jdbcType=VARCHAR}
-    </select>
-    <select id="selectOneByCreatedBy" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from Dictionary
-        where
-        createdBy = #{createdBy,jdbcType=VARCHAR}
-    </select>
-    <insert id="insertSelective">
-        insert into Dictionary
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
-            <if test="code != null">code,</if>
-            <if test="description != null">description,</if>
-            <if test="createdAt != null">createdAt,</if>
-            <if test="createdBy != null">createdBy,</if>
-            <if test="updatedAt != null">updatedAt,</if>
-            <if test="updatedBy != null">updatedBy,</if>
-        </trim>
-        values
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id,jdbcType=INTEGER},</if>
-            <if test="code != null">#{code,jdbcType=VARCHAR},</if>
-            <if test="description != null">#{description,jdbcType=VARCHAR},</if>
-            <if test="createdAt != null">#{createdAt,jdbcType=TIMESTAMP},</if>
-            <if test="createdBy != null">#{createdBy,jdbcType=VARCHAR},</if>
-            <if test="updatedAt != null">#{updatedAt,jdbcType=TIMESTAMP},</if>
-            <if test="updatedBy != null">#{updatedBy,jdbcType=VARCHAR},</if>
-        </trim>
-    </insert>
-    <update id="updateSelective">
-        update Dictionary
-        <set>
-            <if test="code != null">code=#{code,jdbcType=VARCHAR},</if>
-            <if test="description != null">description=#{description,jdbcType=VARCHAR},</if>
-            <if test="createdAt != null">createdAt=#{createdAt},</if>
-            <if test="createdBy != null">createdBy=#{createdBy,jdbcType=VARCHAR},</if>
-            <if test="updatedAt != null">updatedAt=#{updatedAt},</if>
-            <if test="updatedBy != null">updatedBy=#{updatedBy,jdbcType=VARCHAR},</if>
-        </set>
-        where id = #{id,jdbcType=NUMERIC}
-    </update>
 </mapper>

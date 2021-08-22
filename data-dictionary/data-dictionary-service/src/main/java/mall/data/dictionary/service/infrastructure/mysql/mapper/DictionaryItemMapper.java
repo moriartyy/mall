@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import mall.data.dictionary.service.infrastructure.mysql.entity.DictionaryItemPO;
 
 /**
- * @Entity mall.data.dictionary.service.infrastructure.mysql.entity.DictionaryItem
+ * @author walter
  */
 public interface DictionaryItemMapper extends BaseMapper<DictionaryItemPO> {
 

@@ -9,40 +9,47 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @TableName DictionaryItem
+ * DictionaryItem
+ *
+ * @TableName dictionary_item
  */
-@TableName(value = "DictionaryItem")
+@TableName(value = "dictionary_item")
 @Data
 public class DictionaryItemPO implements Serializable {
     /**
      * ID
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
      * DictionaryID
      */
-    private Integer dictionaryId;
+    @TableField(value = "dictionary_id")
+    private Integer dictionary_id;
 
     /**
-     * Title
+     * TItle
      */
+    @TableField(value = "title")
     private String title;
 
     /**
      * Value
      */
+    @TableField(value = "value")
     private String value;
 
     /**
      * Sort
      */
+    @TableField(value = "sort")
     private Short sort;
 
     /**
      * Link
      */
+    @TableField(value = "link")
     private String link;
 
     @TableField(exist = false)

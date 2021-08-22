@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductInfo get(ProductGetParams productGetParams) {
-        Product product = this.productRepository.getById(productGetParams.getId());
+        Product product = this.productRepository.get(productGetParams.getId());
         return this.productAssembler.assemble(product);
     }
 
