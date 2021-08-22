@@ -12,7 +12,7 @@
         <module>rpc</module>
         <module>core</module>
         <module>infrastructure</module>
-        <module>dictionary</module>
+        <module>data-dictionary</module>
         <module>order</module>
         <module>product</module>
         <module>gateway</module>
@@ -24,14 +24,31 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>2.5.3</spring.boot.version>
-        <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
+        <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR10</spring.cloud.version>
         <spring.cloud.alibaba.version>2.2.6.RELEASE</spring.cloud.alibaba.version>
         <springfox.version>3.0.0</springfox.version>
         <swagger.version>1.5.20</swagger.version>
+        <mybatis.plus.version>3.4.3.2</mybatis.plus.version>
+        <mysql.version>8.0.26</mysql.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>

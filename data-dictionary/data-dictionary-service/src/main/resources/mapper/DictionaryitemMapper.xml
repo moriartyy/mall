@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mall.data.dictionary.service.infrastructure.mysql.mapper.DictionaryItemMapper">
+
+    <resultMap id="BaseResultMap" type="mall.data.dictionary.service.infrastructure.mysql.entity.DictionaryItemPO">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="dictionaryId" column="dictionaryId" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="value" column="value" jdbcType="VARCHAR"/>
+        <result property="sort" column="sort" jdbcType="SMALLINT"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,dictionaryId,title,
+        value,sort,link
+    </sql>
+</mapper>

@@ -8,10 +8,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>dictionary</artifactId>
+    <artifactId>data-dictionary</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>dictionary-service-api</module>
-        <module>dictionary-service</module>
+        <module>data-dictionary-service-api</module>
+        <module>data-dictionary-service</module>
     </modules>
 </project>

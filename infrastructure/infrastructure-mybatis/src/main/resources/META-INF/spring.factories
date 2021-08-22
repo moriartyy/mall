@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-mall.infrastructure.rocketmq.config.RocketMQConfig
+mall.infrastructure.mybatis.config.MybatisConfig

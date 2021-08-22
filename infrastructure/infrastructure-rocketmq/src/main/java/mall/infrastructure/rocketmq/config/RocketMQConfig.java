@@ -1,7 +1,9 @@
-package mall.infrastructure.rocketmq;
+package mall.infrastructure.rocketmq.config;
 
 import mall.core.util.JsonUtils;
 import mall.core.util.StringUtils;
+import mall.infrastructure.rocketmq.RocketMQPublisher;
+import mall.infrastructure.rocketmq.RocketMQSubscriber;
 import org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration;
 import org.apache.rocketmq.spring.autoconfigure.RocketMQProperties;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
