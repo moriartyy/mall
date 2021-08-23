@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 @Component
 public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictionary, DictionaryPO> implements DictionaryRepository {
 
-
     private final DictionaryTranslator dictionaryTranslator;
     private final DictionaryItemMapper dictionaryItemMapper;
     private final DictionaryMapper dictionaryMapper;
@@ -41,7 +40,7 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public boolean save(Dictionary dictionary) {
+    public void save(Dictionary dictionary) {
         Tuple<DictionaryPO, List<DictionaryItemPO>> tuple = dictionaryTranslator.forward(dictionary);
         DictionaryPO dictionaryPO = tuple.getV1();
         List<DictionaryItemPO> dictionaryItemPOList = tuple.getV2();
@@ -56,7 +55,7 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
             saveDictionary = this.dictionaryMapper::updateById;
             saveDictionaryItem = this.dictionaryItemMapper::updateById;
         }
-        int affectedRows = saveDictionary.apply(dictionaryPO);
+        saveDictionary.apply(dictionaryPO);
         ObjectUtils.copyProperties(dictionaryPO, dictionary);
         dictionaryItemPOList.forEach(saveDictionaryItem::apply);
         dictionary.setItems(
@@ -64,7 +63,6 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
                         .map(i -> ObjectUtils.createInstanceOf(DictionaryItem.class, i))
                         .collect(Collectors.toList())
         );
-        return affectedRows == 1;
     }
 
     @Override
@@ -73,13 +71,12 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
     }
 
     @Override
-    public boolean delete(Integer id) {
+    public void delete(Integer id) {
         DictionaryPO dictionaryPO = this.dictionaryMapper.selectById(id);
         if (dictionaryPO != null) {
             this.dictionaryItemMapper.deleteByDictionaryCode(dictionaryPO.getCode());
-            return this.dictionaryMapper.deleteById(id) == 1;
+            this.dictionaryMapper.deleteById(id);
         }
-        return false;
     }
 
     public Optional<Dictionary> getIfPresentByCode(String code) {

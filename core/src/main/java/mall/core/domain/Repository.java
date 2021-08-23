@@ -1,72 +1,79 @@
 package mall.core.domain;
 
 import mall.common.exception.BusinessException;
+import mall.core.domain.query.Criteria;
+import mall.core.domain.query.Query;
+import mall.core.domain.query.QueryResult;
+import mall.core.domain.query.Sort;
 import mall.core.util.ClassUtils;
 
+import java.io.Serializable;
 import java.text.MessageFormat;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * @author walter
  */
-public interface Repository<ID, E extends Entity<ID>> {
+public interface Repository<ID extends Serializable, E extends Entity<ID>> {
 
-    /**
-     * Get entity type
-     * @return entity type
-     */
+    int NO_LIMIT = Integer.MAX_VALUE;
+
     default Class<E> getEntityType() {
         return ClassUtils.resolveGenericType(getClass(), 1);
     }
 
-    /**
-     * Get id type
-     * @return id type
-     */
     default Class<ID> getIdType() {
         return ClassUtils.resolveGenericType(getClass(), 0);
     }
 
-    /**
-     * Save entity
-     *
-     * @param entity Entity to be saved
-     */
-    boolean save(E entity);
+    void save(E entity);
 
-    /**
-     * Get entity
-     * @param id entity id
-     * @return entity with the given id
-     * @throws BusinessException if entity not exist
-     */
     default E get(ID id) {
         return getIfPresent(id)
                 .orElseThrow(() -> {
-                            String message = MessageFormat.format("{0} with id ''{1}'' is not exist", getEntityType().getSimpleName(), id);
+                            String message = MessageFormat.format("{0} with id ''{1}'' is not exist!", getEntityType().getSimpleName(), id);
                             return new BusinessException(message);
                         }
                 );
     }
 
-    /**
-     * Get entity if present
-     * @param id entity id
-     * @return Optional value contains instance entity or null
-     */
     Optional<E> getIfPresent(ID id);
 
-    /**
-     * Check if entity exist
-     * @param id entity id
-     * @return <code>true</code> if existed, otherwise <code>false</code>
-     */
     boolean exist(ID id);
 
-    /**
-     * Delete entity
-     * @param id entity id
-     * @return <code>true</code> if deleted, otherwise <code>false</code>
-     */
-    boolean delete(ID id);
+    void delete(ID id);
+
+    default Optional<E> findOne(Criteria criteria) {
+        List<E> all = findAll(criteria, 1);
+        return Optional.ofNullable(all.isEmpty() ? null : all.get(0));
+    }
+
+    default List<E> findAll(Criteria criteria) {
+        return findAll(criteria, NO_LIMIT);
+    }
+
+    default List<E> findAll(Criteria criteria, int limit) {
+        return findAll(criteria, 0, limit);
+    }
+
+    default List<E> findAll(Criteria criteria, int offset, int limit) {
+        return findAll(criteria, Sort.NULL, offset, limit);
+    }
+
+    default List<E> findAll(Criteria criteria, Sort sort) {
+        return findAll(criteria, sort, NO_LIMIT);
+    }
+
+    default List<E> findAll(Criteria criteria, Sort sort, int limit) {
+        return findAll(criteria, sort, 0, limit);
+    }
+
+    default List<E> findAll(Criteria criteria, Sort sort, int offset, int limit) {
+        Query query = Query.builder().criteria(criteria).sort(sort).offset(offset).limit(limit).build();
+        return execute(query).getItems();
+    }
+
+    QueryResult<E> execute(Query query);
+
 }

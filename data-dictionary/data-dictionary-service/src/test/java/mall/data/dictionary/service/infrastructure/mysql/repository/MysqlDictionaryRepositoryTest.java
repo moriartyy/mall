@@ -34,7 +34,8 @@ class MysqlDictionaryRepositoryTest {
         repository.save(dict);
         assertTrue(repository.getIfPresent(dict.getId()).isPresent());
         assertFalse(repository.getIfPresent(10000).isPresent());
-        assertTrue(repository.delete(dict.getId()));
+        repository.delete(dict.getId());
+        assertFalse(repository.exist(dict.getId()));
     }
 
     @Test

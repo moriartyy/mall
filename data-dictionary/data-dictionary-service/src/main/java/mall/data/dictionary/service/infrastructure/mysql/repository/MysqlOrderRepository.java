@@ -1,5 +1,7 @@
 package mall.data.dictionary.service.infrastructure.mysql.repository;
 
+import mall.core.domain.query.Query;
+import mall.core.domain.query.QueryResult;
 import mall.data.dictionary.service.domain.Order;
 import mall.data.dictionary.service.domain.OrderRepository;
 import mall.data.dictionary.service.infrastructure.mysql.entity.OrderPO;
@@ -17,5 +19,10 @@ public class MysqlOrderRepository extends MybatisRepository<Integer, Order, Orde
     @Autowired
     public MysqlOrderRepository(OrderMapper mapper) {
         super(mapper);
+    }
+
+    @Override
+    public QueryResult<Order> query(Query query) {
+        return null;
     }
 }
