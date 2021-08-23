@@ -57,7 +57,7 @@ public abstract class MybatisRepository<ID extends Serializable, E extends Entit
 
     @Override
     public Optional<E> getIfPresent(ID id) {
-        return Optional.ofNullable(this.mapper.selectById(id)).map(translator::backward);
+        return Optional.ofNullable(this.mapper.selectById(id)).map(this::toEntity);
     }
 
     @Override
@@ -96,8 +96,12 @@ public abstract class MybatisRepository<ID extends Serializable, E extends Entit
         return QueryResult.<E>builder()
                 .total(total)
                 .items(poList.stream()
-                        .map(this.translator::backward)
+                        .map(this::toEntity)
                         .collect(Collectors.toList()))
                 .build();
+    }
+
+    protected E toEntity(PO po) {
+        return this.translator.backward(po);
     }
 }

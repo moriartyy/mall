@@ -66,11 +66,6 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
     }
 
     @Override
-    public Optional<Dictionary> getIfPresent(Integer id) {
-        return Optional.ofNullable(this.dictionaryMapper.selectById(id)).map(this::getDictionary);
-    }
-
-    @Override
     public void delete(Integer id) {
         DictionaryPO dictionaryPO = this.dictionaryMapper.selectById(id);
         if (dictionaryPO != null) {
@@ -80,13 +75,15 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
     }
 
     public Optional<Dictionary> getIfPresentByCode(String code) {
-        return Optional.ofNullable(this.dictionaryMapper.selectOneByCode(code)).map(this::getDictionary);
+        return Optional.ofNullable(this.dictionaryMapper.selectOneByCode(code)).map(this::toEntity);
     }
 
-    private Dictionary getDictionary(DictionaryPO dictionaryPO) {
+    @Override
+    protected Dictionary toEntity(DictionaryPO dictionaryPO) {
         List<DictionaryItemPO> dictionaryItemPOList = this.dictionaryItemMapper.selectByDictionaryCode(dictionaryPO.getCode());
         return this.dictionaryTranslator.backward(Tuple.of(dictionaryPO, dictionaryItemPOList));
     }
+
 }
 
 
