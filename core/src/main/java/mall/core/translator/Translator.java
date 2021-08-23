@@ -1,4 +1,4 @@
-package mall.core.infrastructure;
+package mall.core.translator;
 
 /**
  * @author walter

@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import lombok.Getter;
 import mall.core.domain.Entity;
 import mall.core.domain.Repository;
-import mall.core.infrastructure.Translator;
+import mall.core.translator.DefaultTranslator;
+import mall.core.translator.Translator;
+import mall.core.util.ObjectUtils;
 
 import java.util.Optional;
 
@@ -17,17 +19,24 @@ public abstract class MybatisRepository<ID, E extends Entity<ID>, PO> implements
     private final BaseMapper<PO> mapper;
     private final Translator<E, PO> translator;
 
+    protected MybatisRepository(BaseMapper<PO> mapper) {
+        this.mapper = mapper;
+        this.translator = new DefaultTranslator<>();
+    }
+
     protected MybatisRepository(BaseMapper<PO> mapper, Translator<E, PO> translator) {
         this.mapper = mapper;
         this.translator = translator;
     }
 
     public void save(E entity) {
+        PO po = translator.forward(entity);
         if (entity.getId() == null) {
-            this.mapper.insert(translator.forward(entity));
+            this.mapper.insert(po);
         } else {
-            this.mapper.updateById(translator.forward(entity));
+            this.mapper.updateById(po);
         }
+        ObjectUtils.copyProperties(po, entity);
     }
 
     public Optional<E> getIfPresent(Integer id) {

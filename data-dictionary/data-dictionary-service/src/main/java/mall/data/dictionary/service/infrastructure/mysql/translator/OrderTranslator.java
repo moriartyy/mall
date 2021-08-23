@@ -1,6 +1,6 @@
 package mall.data.dictionary.service.infrastructure.mysql.translator;
 
-import mall.core.infrastructure.Translator;
+import mall.core.translator.Translator;
 import mall.data.dictionary.service.domain.Order;
 import mall.data.dictionary.service.infrastructure.mysql.entity.OrderPO;
 import org.springframework.stereotype.Component;

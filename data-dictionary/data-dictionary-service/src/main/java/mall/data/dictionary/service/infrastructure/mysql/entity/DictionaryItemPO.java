@@ -23,13 +23,13 @@ public class DictionaryItemPO implements Serializable {
     private Integer id;
 
     /**
-     * DictionaryID
+     * DictionaryCode
      */
-    @TableField(value = "dictionary_id")
-    private Integer dictionary_id;
+    @TableField(value = "dictionary_code")
+    private Integer dictionary_code;
 
     /**
-     * TItle
+     * Title
      */
     @TableField(value = "title")
     private String title;

@@ -6,7 +6,7 @@
 
     <resultMap id="BaseResultMap" type="mall.data.dictionary.service.infrastructure.mysql.entity.DictionaryItemPO">
         <id property="id" column="id" jdbcType="INTEGER"/>
-        <result property="dictionary_id" column="dictionary_id" jdbcType="INTEGER"/>
+        <result property="dictionary_code" column="dictionary_code" jdbcType="VARCHAR"/>
         <result property="title" column="title" jdbcType="VARCHAR"/>
         <result property="value" column="value" jdbcType="VARCHAR"/>
         <result property="sort" column="sort" jdbcType="SMALLINT"/>
@@ -14,7 +14,19 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,dictionary_id,title,
+        id,dictionary_code,title,
         value,sort,link
     </sql>
+    <select id="selectByDictionaryCode" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from dictionary_item
+        where
+        dictionary_code = #{dictionary_code,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByDictionaryCode">
+        delete
+        from dictionary_item
+        where dictionary_code = #{dictionary_code,jdbcType=VARCHAR}
+    </delete>
 </mapper>
