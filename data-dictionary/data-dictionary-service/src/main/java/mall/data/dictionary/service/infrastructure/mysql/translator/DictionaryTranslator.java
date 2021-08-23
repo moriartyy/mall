@@ -21,7 +21,11 @@ public class DictionaryTranslator implements Translator<Dictionary, Tuple<Dictio
         DictionaryPO dictionaryPO = ObjectUtils.createInstanceOf(DictionaryPO.class, dictionary);
         List<DictionaryItemPO> dictionaryItemPOList = dictionary.getItems()
                 .stream()
-                .map(i -> ObjectUtils.createInstanceOf(DictionaryItemPO.class, i))
+                .map(i -> {
+                    DictionaryItemPO itemPO = ObjectUtils.createInstanceOf(DictionaryItemPO.class, i);
+                    itemPO.setDictionaryCode(dictionary.getCode());
+                    return itemPO;
+                })
                 .collect(Collectors.toList());
         return Tuple.of(dictionaryPO, dictionaryItemPOList);
     }

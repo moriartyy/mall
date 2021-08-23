@@ -12,6 +12,8 @@ import mall.data.dictionary.service.infrastructure.mysql.mapper.DictionaryMapper
 import mall.data.dictionary.service.infrastructure.mysql.translator.DictionaryTranslator;
 import mall.infrastructure.mybatis.MybatisRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,8 +39,9 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
         this.dictionaryTranslator = new DictionaryTranslator();
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public void save(Dictionary dictionary) {
+    public boolean save(Dictionary dictionary) {
         Tuple<DictionaryPO, List<DictionaryItemPO>> tuple = dictionaryTranslator.forward(dictionary);
         DictionaryPO dictionaryPO = tuple.getV1();
         List<DictionaryItemPO> dictionaryItemPOList = tuple.getV2();
@@ -53,7 +56,7 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
             saveDictionary = this.dictionaryMapper::updateById;
             saveDictionaryItem = this.dictionaryItemMapper::updateById;
         }
-        saveDictionary.apply(dictionaryPO);
+        int affectedRows = saveDictionary.apply(dictionaryPO);
         ObjectUtils.copyProperties(dictionaryPO, dictionary);
         dictionaryItemPOList.forEach(saveDictionaryItem::apply);
         dictionary.setItems(
@@ -61,14 +64,12 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
                         .map(i -> ObjectUtils.createInstanceOf(DictionaryItem.class, i))
                         .collect(Collectors.toList())
         );
+        return affectedRows == 1;
     }
 
     @Override
     public Optional<Dictionary> getIfPresent(Integer id) {
-        return Optional.ofNullable(this.dictionaryMapper.selectById(id)).map(dictionaryPO -> {
-            List<DictionaryItemPO> dictionaryItemPOList = this.dictionaryItemMapper.selectByDictionaryCode(dictionaryPO.getCode());
-            return this.dictionaryTranslator.backward(Tuple.of(dictionaryPO, dictionaryItemPOList));
-        });
+        return Optional.ofNullable(this.dictionaryMapper.selectById(id)).map(this::getDictionary);
     }
 
     @Override
@@ -79,6 +80,15 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
             return this.dictionaryMapper.deleteById(id) == 1;
         }
         return false;
+    }
+
+    public Optional<Dictionary> getIfPresentByCode(String code) {
+        return Optional.ofNullable(this.dictionaryMapper.selectOneByCode(code)).map(this::getDictionary);
+    }
+
+    private Dictionary getDictionary(DictionaryPO dictionaryPO) {
+        List<DictionaryItemPO> dictionaryItemPOList = this.dictionaryItemMapper.selectByDictionaryCode(dictionaryPO.getCode());
+        return this.dictionaryTranslator.backward(Tuple.of(dictionaryPO, dictionaryItemPOList));
     }
 }
 

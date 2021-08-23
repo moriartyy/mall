@@ -26,7 +26,7 @@ public class DictionaryItemPO implements Serializable {
      * DictionaryCode
      */
     @TableField(value = "dictionary_code")
-    private Integer dictionary_code;
+    private String dictionaryCode;
 
     /**
      * Title

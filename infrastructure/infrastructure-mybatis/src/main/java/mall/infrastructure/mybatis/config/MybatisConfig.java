@@ -45,7 +45,7 @@ public class MybatisConfig {
 
         @Override
         public void updateFill(MetaObject metaObject) {
-            this.strictUpdateFill(metaObject, "updateAt", LocalDateTime.class, LocalDateTime.now());
+            this.strictUpdateFill(metaObject, "updatedAt", LocalDateTime.class, LocalDateTime.now());
             this.strictUpdateFill(metaObject, "updatedBy", String.class, "张三");
         }
     }

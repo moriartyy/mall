@@ -13,7 +13,7 @@ public class DefaultTranslator<A, B> implements Translator<A, B> {
 
     @SuppressWarnings("unchecked")
     public DefaultTranslator() {
-        Class<?>[] generics = ResolvableType.forClass(getClass()).getSuperType().resolveGenerics();
+        Class<?>[] generics = ResolvableType.forClass(getClass()).resolveGenerics();
         this.classA = (Class<A>) generics[0];
         this.classB = (Class<B>) generics[1];
     }

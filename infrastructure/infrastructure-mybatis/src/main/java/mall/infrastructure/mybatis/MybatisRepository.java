@@ -29,14 +29,16 @@ public abstract class MybatisRepository<ID, E extends Entity<ID>, PO> implements
         this.translator = translator;
     }
 
-    public void save(E entity) {
+    public boolean save(E entity) {
+        int affectedRows;
         PO po = translator.forward(entity);
         if (entity.getId() == null) {
-            this.mapper.insert(po);
+            affectedRows = this.mapper.insert(po);
         } else {
-            this.mapper.updateById(po);
+            affectedRows = this.mapper.updateById(po);
         }
         ObjectUtils.copyProperties(po, entity);
+        return affectedRows == 1;
     }
 
     public Optional<E> getIfPresent(Integer id) {

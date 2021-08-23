@@ -20,4 +20,12 @@ public class Application {
         app.setBannerMode(Banner.Mode.OFF);
         return app.run(args);
     }
+
+    public static ConfigurableApplicationContext run(Class<?> primarySource, String... args) {
+        return (new Application(primarySource)).run(args);
+    }
+
+    public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
+        return (new Application(primarySources)).run(args);
+    }
 }

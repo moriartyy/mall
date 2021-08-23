@@ -13,7 +13,6 @@ public interface Repository<ID, E extends Entity<ID>> {
 
     /**
      * Get entity type
-     *
      * @return entity type
      */
     default Class<E> getEntityType() {
@@ -22,7 +21,6 @@ public interface Repository<ID, E extends Entity<ID>> {
 
     /**
      * Get id type
-     *
      * @return id type
      */
     default Class<ID> getIdType() {
@@ -34,11 +32,10 @@ public interface Repository<ID, E extends Entity<ID>> {
      *
      * @param entity Entity to be saved
      */
-    void save(E entity);
+    boolean save(E entity);
 
     /**
      * Get entity
-     *
      * @param id entity id
      * @return entity with the given id
      * @throws BusinessException if entity not exist
@@ -54,23 +51,20 @@ public interface Repository<ID, E extends Entity<ID>> {
 
     /**
      * Get entity if present
-     *
      * @param id entity id
      * @return Optional value contains instance entity or null
      */
     Optional<E> getIfPresent(ID id);
 
     /**
-     * Check if entity exist with the given id
-     *
+     * Check if entity exist
      * @param id entity id
-     * @return <code>true</code> if exist, otherwise <code>false</code>
+     * @return <code>true</code> if existed, otherwise <code>false</code>
      */
     boolean exist(ID id);
 
     /**
-     * Delete entity with the given id
-     *
+     * Delete entity
      * @param id entity id
      * @return <code>true</code> if deleted, otherwise <code>false</code>
      */

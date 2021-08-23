@@ -1,8 +1,7 @@
 package mall.data.dictionary.service;
 
+import mall.core.bootstrap.Application;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.Banner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -13,9 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DataDictionaryServiceApplication {
 
     public static void main(String[] args) {
-//        new Application(DataDictionaryServiceApplication.class).run(args);
-        SpringApplication app = new SpringApplication(DataDictionaryServiceApplication.class);
-        app.setBannerMode(Banner.Mode.OFF);
-        app.run(args);
+        Application.run(DataDictionaryServiceApplication.class, args);
     }
 }

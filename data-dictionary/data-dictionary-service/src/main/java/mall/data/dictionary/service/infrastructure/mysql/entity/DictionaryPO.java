@@ -1,9 +1,6 @@
 package mall.data.dictionary.service.infrastructure.mysql.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -38,26 +35,26 @@ public class DictionaryPO implements Serializable {
     /**
      * Created at when
      */
-    @TableField(value = "created_at")
-    private LocalDateTime created_at;
+    @TableField(value = "created_at", fill = FieldFill.INSERT)
+    private LocalDateTime createdAt;
 
     /**
-     *
+     * Created by who
      */
-    @TableField(value = "created_by")
-    private String created_by;
+    @TableField(value = "created_by", fill = FieldFill.INSERT)
+    private String createdBy;
 
     /**
      * Updated at when
      */
-    @TableField(value = "updated_at")
-    private LocalDateTime updated_at;
+    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updatedAt;
 
     /**
      * Updated by who
      */
-    @TableField(value = "updated_by")
-    private String updated_by;
+    @TableField(value = "updated_by", fill = FieldFill.INSERT_UPDATE)
+    private String updatedBy;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

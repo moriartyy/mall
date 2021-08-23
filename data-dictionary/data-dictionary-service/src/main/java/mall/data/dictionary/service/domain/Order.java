@@ -17,11 +17,4 @@ public class Order implements Entity<Integer> {
     private String buyer;
     private LocalDateTime whenPlaced;
 
-    public Order(Integer id) {
-        this.id = id;
-    }
-
-    public Order() {
-    }
-
 }
