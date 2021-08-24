@@ -1,4 +1,4 @@
-package mall.core.util;
+package mall.common.util;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

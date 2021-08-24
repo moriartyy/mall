@@ -1,6 +1,6 @@
 package mall.infrastructure.rocketmq.config;
 
-import mall.core.util.JsonUtils;
+import mall.common.util.JsonUtils;
 import mall.core.util.StringUtils;
 import mall.infrastructure.rocketmq.RocketMQPublisher;
 import mall.infrastructure.rocketmq.RocketMQSubscriber;

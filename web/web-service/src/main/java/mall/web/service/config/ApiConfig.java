@@ -1,6 +1,7 @@
 package mall.web.service.config;
 
-import mall.core.util.JsonUtils;
+import mall.common.model.EnumPlusHandlerInstantiator;
+import mall.common.util.JsonUtils;
 import mall.web.service.annotation.RequestParamsResolver;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -26,6 +27,7 @@ public class ApiConfig implements WebMvcConfigurer, BeanFactoryAware {
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer dateTimeMapperBuilderCustomizer() {
         return builder -> {
+            builder.handlerInstantiator(new EnumPlusHandlerInstantiator());
             JsonUtils.addDateTimeSerializers(builder::serializerByType);
             JsonUtils.addDateTimeDeserializers(builder::deserializerByType);
         };

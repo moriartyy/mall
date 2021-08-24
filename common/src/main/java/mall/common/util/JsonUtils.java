@@ -1,4 +1,4 @@
-package mall.core.util;
+package mall.common.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
+import mall.common.model.EnumPlusHandlerInstantiator;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;
@@ -32,6 +33,7 @@ public class JsonUtils {
     static {
         MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         MAPPER.registerModule(createDateTimeModule());
+        MAPPER.setHandlerInstantiator(new EnumPlusHandlerInstantiator());
     }
 
     public static SimpleModule createDateTimeModule() {

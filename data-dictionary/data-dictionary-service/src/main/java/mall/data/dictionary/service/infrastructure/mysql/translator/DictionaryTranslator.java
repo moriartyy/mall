@@ -1,8 +1,8 @@
 package mall.data.dictionary.service.infrastructure.mysql.translator;
 
+import mall.common.util.Tuple;
 import mall.core.translator.Translator;
 import mall.core.util.ObjectUtils;
-import mall.core.util.Tuple;
 import mall.data.dictionary.service.domain.Dictionary;
 import mall.data.dictionary.service.domain.DictionaryItem;
 import mall.data.dictionary.service.infrastructure.mysql.entity.DictionaryItemPO;

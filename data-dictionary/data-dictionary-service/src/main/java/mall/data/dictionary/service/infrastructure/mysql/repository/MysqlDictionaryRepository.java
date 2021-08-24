@@ -1,7 +1,7 @@
 package mall.data.dictionary.service.infrastructure.mysql.repository;
 
+import mall.common.util.Tuple;
 import mall.core.util.ObjectUtils;
-import mall.core.util.Tuple;
 import mall.data.dictionary.service.domain.Dictionary;
 import mall.data.dictionary.service.domain.DictionaryItem;
 import mall.data.dictionary.service.domain.DictionaryRepository;

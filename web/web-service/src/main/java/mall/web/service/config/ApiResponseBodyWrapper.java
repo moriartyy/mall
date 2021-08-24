@@ -1,6 +1,6 @@
 package mall.web.service.config;
 
-import mall.core.util.JsonUtils;
+import mall.common.util.JsonUtils;
 import mall.web.service.api.ApiResult;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

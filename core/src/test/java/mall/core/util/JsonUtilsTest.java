@@ -3,6 +3,7 @@ package mall.core.util;
 
 import lombok.Getter;
 import mall.common.model.Event;
+import mall.common.util.JsonUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
