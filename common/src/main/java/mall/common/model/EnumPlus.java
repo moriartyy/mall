@@ -2,6 +2,7 @@ package mall.common.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @author walter
@@ -10,8 +11,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonDeserialize(using = EnumPlusDeserializer.class)
 public interface EnumPlus {
 
+    @ApiModelProperty(value = "Display name")
     String getDisplayName();
 
+    @ApiModelProperty(value = "Value")
     Integer getValue();
 
 }

@@ -1,11 +1,13 @@
 package mall.common.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
  * @author walter
  */
+@ApiModel(description = "Sex")
 @Getter
 @RequiredArgsConstructor
 public enum Sex implements EnumPlus {
