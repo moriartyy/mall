@@ -3,9 +3,9 @@ package mall.web.service.config;
 import lombok.extern.slf4j.Slf4j;
 import mall.common.exception.BusinessException;
 import mall.common.exception.SystemException;
-import mall.web.service.api.ApiError;
-import mall.web.service.api.ApiResult;
-import mall.web.service.api.ApiStatus;
+import mall.web.service.api.Error;
+import mall.web.service.api.Result;
+import mall.web.service.api.ResultStatus;
 import mall.web.service.util.ExceptionUtils;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,54 +23,54 @@ import javax.validation.ConstraintViolationException;
  */
 @Slf4j
 @ControllerAdvice(annotations = RestController.class)
-public class ApiExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(MethodArgumentTypeMismatchException e) {
-        return ApiResult.fail(ApiStatus.INVALID_PARAMETER_TYPE, e.getMessage());
+        return Result.fail(ResultStatus.INVALID_PARAMETER_TYPE, e.getMessage());
     }
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(MissingServletRequestParameterException e) {
-        return ApiResult.fail(ApiStatus.MISSING_PARAMETER, e.getMessage());
+        return Result.fail(ResultStatus.MISSING_PARAMETER, e.getMessage());
     }
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(BindException e) {
-        return ApiResult.fail(ApiStatus.INVALID_PARAMETER, ExceptionUtils.buildMessage(e));
+        return Result.fail(ResultStatus.INVALID_PARAMETER, ExceptionUtils.buildMessage(e));
     }
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(MethodArgumentNotValidException e) {
-        return ApiResult.fail(ApiStatus.INVALID_PARAMETER, ExceptionUtils.buildMessage(e));
+        return Result.fail(ResultStatus.INVALID_PARAMETER, ExceptionUtils.buildMessage(e));
     }
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(ConstraintViolationException e) {
-        return ApiResult.fail(ApiStatus.INVALID_PARAMETER, ExceptionUtils.buildMessage(e));
+        return Result.fail(ResultStatus.INVALID_PARAMETER, ExceptionUtils.buildMessage(e));
     }
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(BusinessException e) {
-        return ApiResult.fail(ApiStatus.BUSINESS_ERROR, ApiError.of(e.getErrorCode(), e.getMessage()));
+        return Result.fail(ResultStatus.BUSINESS_ERROR, Error.of(e.getErrorCode(), e.getMessage()));
     }
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(SystemException e) {
-        return ApiResult.fail(ApiStatus.SYSTEM_ERROR, ApiError.of(e.getErrorCode(), e.getMessage()));
+        return Result.fail(ResultStatus.SYSTEM_ERROR, Error.of(e.getErrorCode(), e.getMessage()));
     }
 
     @ResponseBody
     @ExceptionHandler
     public Object handle(Exception e) {
         log.error("Handling {}", e.getClass().getSimpleName(), e);
-        return ApiResult.fail(ApiStatus.UNKNOWN_ERROR, e.getMessage());
+        return Result.fail(ResultStatus.UNKNOWN_ERROR, e.getMessage());
     }
 }

@@ -6,8 +6,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
-import mall.web.service.api.ApiResult;
-import mall.web.service.api.ApiStatus;
+import mall.web.service.api.Result;
+import mall.web.service.api.ResultStatus;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.EnvironmentAware;
@@ -53,7 +53,7 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
                 .build()
                 .globalResponses(HttpMethod.GET, getGlobalResponses())
                 .globalResponses(HttpMethod.POST, getGlobalResponses())
-                .genericModelSubstitutes(ApiResult.class)
+                .genericModelSubstitutes(Result.class)
 //                .additionalModels(typeResolver.resolve(ApiResultModel.class))
                 ;
 
@@ -63,7 +63,7 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
     @ApiModel("ApiResult")
     public static class ApiResultModel<T> {
         @ApiModelProperty(value = "Status", dataType = "int", position = 0)
-        private ApiStatus status;
+        private ResultStatus status;
         @ApiModelProperty(value = "Message", position = 1)
         private String message;
         @ApiModelProperty(value = "Data", position = 2)
@@ -142,8 +142,8 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
         @Override
         public ResolvedType methodReturnType(HandlerMethod handlerMethod) {
             ResolvedType returnType = super.methodReturnType(handlerMethod);
-            if (returnType.getErasedType() != ApiResult.class) {
-                return typeResolver.resolve(ApiResult.class, returnType);
+            if (returnType.getErasedType() != Result.class) {
+                return typeResolver.resolve(Result.class, returnType);
             }
             return returnType;
         }

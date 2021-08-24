@@ -13,17 +13,17 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ApiError {
+public class Error {
 
-    public static final ApiError UNKNOWN = new ApiError(null, "UNKNOWN");
+    public static final Error UNKNOWN = new Error(null, "UNKNOWN");
 
     @ApiModelProperty(value = "Error Code")
     private Integer code;
     @ApiModelProperty(value = "Error Message")
     private String message;
 
-    public static ApiError of(Integer code, String message) {
-        return new ApiError(code, message);
+    public static Error of(Integer code, String message) {
+        return new Error(code, message);
     }
 
 }
