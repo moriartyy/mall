@@ -9,9 +9,9 @@ import java.util.List;
  */
 @Data
 public class PageInfo<T> {
-    private long total;
-    private long number;
-    private long count;
-    private long size;
+    private long pageNo;
+    private long pageSize;
+    private long totalPages;
+    private long totalItems;
     private List<T> items;
 }

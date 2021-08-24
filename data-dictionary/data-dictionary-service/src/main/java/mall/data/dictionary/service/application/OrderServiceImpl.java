@@ -52,8 +52,8 @@ public class OrderServiceImpl implements OrderService {
         Query query = queryResolvingService.resolve(orderQueryParams);
         QueryResult<Order> queryResult = this.orderRepository.execute(query);
         PageInfo<OrderInfo> pageInfo = new PageInfo<>();
-        pageInfo.setTotal(queryResult.getTotal());
-        pageInfo.setSize(query.getLimit());
+        pageInfo.setTotalItems(queryResult.getTotal());
+        pageInfo.setPageSize(query.getLimit());
         pageInfo.setItems(
                 queryResult.getItems()
                         .stream().map(this.orderAssembler::assemble)
