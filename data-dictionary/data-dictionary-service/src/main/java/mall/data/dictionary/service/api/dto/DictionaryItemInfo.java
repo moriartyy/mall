@@ -2,7 +2,6 @@ package mall.data.dictionary.service.api.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -32,7 +31,6 @@ public class DictionaryItemInfo {
     @NotBlank(message = "[TItle]不能为空")
     @Size(max = 45, message = "编码长度不能超过45")
     @ApiModelProperty("TItle")
-    @Length(max = 45, message = "编码长度不能超过45")
     private String title;
     /**
      * Value
@@ -40,7 +38,6 @@ public class DictionaryItemInfo {
     @NotBlank(message = "[Value]不能为空")
     @Size(max = 45, message = "编码长度不能超过45")
     @ApiModelProperty("Value")
-    @Length(max = 45, message = "编码长度不能超过45")
     private String value;
     /**
      * Sort
@@ -54,7 +51,6 @@ public class DictionaryItemInfo {
     @NotBlank(message = "[Link]不能为空")
     @Size(max = 500, message = "编码长度不能超过500")
     @ApiModelProperty("Link")
-    @Length(max = 500, message = "编码长度不能超过500")
     private String link;
 
 }
