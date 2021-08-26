@@ -6,7 +6,18 @@ spring:
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/system?useUnicode=true&serverTimezone=Asia/Shanghai
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
 
 mybatis-plus:
   configuration:
-    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com:
+      baomidou:
+        mybatisplus=debug:

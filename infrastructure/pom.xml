@@ -13,5 +13,6 @@
     <modules>
         <module>infrastructure-rocketmq</module>
         <module>infrastructure-mybatis</module>
+        <module>infrastructure-hibernate</module>
     </modules>
 </project>

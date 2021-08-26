@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mall.dictionary.service.infrastructure.mysql.mapper.DictionaryItemMapper">
+
+    <resultMap id="BaseResultMap" type="mall.dictionary.service.infrastructure.mysql.entity.DictionaryItemPO">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="dictionaryCode" column="dictionary_code" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="value" column="value" jdbcType="VARCHAR"/>
+        <result property="sort" column="sort" jdbcType="SMALLINT"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,dictionary_code,title,
+        value,sort,link
+    </sql>
+    <select id="selectByDictionaryCode" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from dictionary_item
+        where
+        dictionary_code = #{dictionary_code,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByDictionaryCode">
+        delete
+        from dictionary_item
+        where dictionary_code = #{dictionary_code,jdbcType=VARCHAR}
+    </delete>
+</mapper>

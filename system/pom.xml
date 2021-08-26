@@ -13,5 +13,6 @@
     <modules>
         <module>system-service-api</module>
         <module>system-service</module>
+        <module>system-ui</module>
     </modules>
 </project>
