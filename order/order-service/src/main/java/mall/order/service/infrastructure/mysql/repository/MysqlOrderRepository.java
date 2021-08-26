@@ -1,10 +1,10 @@
-package mall.dictionary.service.infrastructure.mysql.repository;
+package mall.order.service.infrastructure.mysql.repository;
 
-import mall.dictionary.service.domain.Order;
-import mall.dictionary.service.domain.OrderRepository;
-import mall.dictionary.service.infrastructure.mysql.entity.OrderPO;
-import mall.dictionary.service.infrastructure.mysql.mapper.OrderMapper;
 import mall.infrastructure.mybatis.MybatisRepository;
+import mall.order.service.domain.Order;
+import mall.order.service.domain.OrderRepository;
+import mall.order.service.infrastructure.mysql.entity.OrderPO;
+import mall.order.service.infrastructure.mysql.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

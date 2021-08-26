@@ -38,10 +38,10 @@ class UserRepositoryTest {
     @Test
     void testCascade() {
         User user = new User();
-        user.setName("Peter");
+        user.setName("Smith");
+        user.setRoles(ImmutableList.of(new UserRoleRelation(user, 3), new UserRoleRelation(user, 7)));
         this.userRepository.saveAndFlush(user);
-        user.setRoles(ImmutableList.of(new UserRoleRelation(user, 2), new UserRoleRelation(user, 5)));
-        this.userRepository.saveAndFlush(user);
+
     }
 
 }

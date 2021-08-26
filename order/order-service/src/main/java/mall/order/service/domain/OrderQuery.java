@@ -1,4 +1,4 @@
-package mall.dictionary.service.domain;
+package mall.order.service.domain;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,9 +1,9 @@
-package mall.dictionary.service.controller;
+package mall.order.service.controller;
 
 import lombok.RequiredArgsConstructor;
 import mall.common.model.PageInfo;
-import mall.dictionary.service.api.OrderService;
-import mall.dictionary.service.api.dto.*;
+import mall.order.service.api.OrderService;
+import mall.order.service.api.dto.*;
 import mall.web.service.annotation.RequestParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package mall.dictionary.service.api.dto;
+package mall.order.service.api.dto;
 
 import lombok.Data;
 

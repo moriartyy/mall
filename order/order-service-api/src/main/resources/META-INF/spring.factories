@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-mall.order.service.api.OrderServiceApiConfig
+mall.order.service.api.config.OrderServiceApiConfig

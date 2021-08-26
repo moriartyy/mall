@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author walter
  */
-@EnableFeignClients(basePackages = "mall.order.service.api")
+@EnableFeignClients(basePackages = "mall.dictionary.service.api")
 @Configuration
-public class OrderServiceApiConfig {
+public class DictionaryServiceApiConfig {
 }

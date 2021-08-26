@@ -1,7 +1,7 @@
-package mall.dictionary.service.application.assembler;
+package mall.order.service.application.assembler;
 
-import mall.dictionary.service.api.dto.OrderInfo;
-import mall.dictionary.service.domain.Order;
+import mall.order.service.api.dto.OrderInfo;
+import mall.order.service.domain.Order;
 import org.springframework.stereotype.Component;
 
 /**
