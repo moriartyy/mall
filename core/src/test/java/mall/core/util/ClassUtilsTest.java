@@ -1,6 +1,6 @@
 package mall.core.util;
 
-import mall.common.model.Event;
+import mall.common.event.Event;
 import mall.core.eventing.EventHandler;
 import org.junit.jupiter.api.Test;
 

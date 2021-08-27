@@ -1,7 +1,7 @@
 package mall.dictionary.service.controller;
 
 import lombok.RequiredArgsConstructor;
-import mall.common.model.PageInfo;
+import mall.common.dto.PageInfo;
 import mall.dictionary.service.api.DictionaryService;
 import mall.dictionary.service.api.dto.*;
 import mall.web.service.annotation.RequestParams;

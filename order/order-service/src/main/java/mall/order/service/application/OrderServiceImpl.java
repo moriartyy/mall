@@ -1,7 +1,7 @@
 package mall.order.service.application;
 
 import lombok.RequiredArgsConstructor;
-import mall.common.model.PageInfo;
+import mall.common.dto.PageInfo;
 import mall.core.domain.query.Query;
 import mall.core.domain.query.QueryResolvingService;
 import mall.core.domain.query.QueryResult;

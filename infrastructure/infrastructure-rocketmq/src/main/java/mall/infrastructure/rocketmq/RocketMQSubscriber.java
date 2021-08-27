@@ -2,7 +2,7 @@ package mall.infrastructure.rocketmq;
 
 import com.google.common.base.CaseFormat;
 import lombok.extern.slf4j.Slf4j;
-import mall.common.model.Event;
+import mall.common.dto.Event;
 import mall.common.util.JsonUtils;
 import mall.core.eventing.EventHandler;
 import mall.core.eventing.EventSubscriber;

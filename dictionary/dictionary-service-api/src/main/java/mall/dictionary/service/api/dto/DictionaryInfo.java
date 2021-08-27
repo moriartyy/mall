@@ -1,18 +1,21 @@
 package mall.dictionary.service.api.dto;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import mall.common.dto.DataChangeInfo;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author Walter
  */
+@ApiModel(description = "DictionaryInfo")
 @Data
-public class DictionaryInfo {
+public class DictionaryInfo extends DataChangeInfo {
 
     /**
      * ID
@@ -34,31 +37,8 @@ public class DictionaryInfo {
     @Size(max = 300, message = "编码长度不能超过300")
     @ApiModelProperty("Description")
     private String description;
-    /**
-     * Created at when
-     */
-    @NotNull(message = "[Created at when]不能为空")
-    @ApiModelProperty("Created at when")
-    private LocalDateTime created_at;
-    /**
-     *
-     */
-    @NotBlank(message = "[]不能为空")
-    @Size(max = 45, message = "编码长度不能超过45")
-    @ApiModelProperty("")
-    private String created_by;
-    /**
-     * Updated at when
-     */
-    @NotNull(message = "[Updated at when]不能为空")
-    @ApiModelProperty("Updated at when")
-    private LocalDateTime updated_at;
-    /**
-     * Updated by who
-     */
-    @NotBlank(message = "[Updated by who]不能为空")
-    @Size(max = 45, message = "编码长度不能超过45")
-    @ApiModelProperty("Updated by who")
-    private String updated_by;
+
+    @ApiModelProperty("Items")
+    private List<DictionaryItemInfo> items;
 
 }

@@ -1,8 +1,8 @@
 package mall.dictionary.service.application;
 
 import lombok.RequiredArgsConstructor;
+import mall.common.dto.PageInfo;
 import mall.common.exception.BusinessException;
-import mall.common.model.PageInfo;
 import mall.dictionary.service.api.DictionaryService;
 import mall.dictionary.service.api.dto.*;
 import mall.dictionary.service.domain.Dictionary;

@@ -1,7 +1,8 @@
-package mall.common.model;
+package mall.common.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import mall.common.enums.EnumPlus;
 import mall.common.util.JsonUtils;
 import org.junit.jupiter.api.Test;
 

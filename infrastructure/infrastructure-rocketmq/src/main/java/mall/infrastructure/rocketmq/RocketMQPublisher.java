@@ -1,7 +1,7 @@
 package mall.infrastructure.rocketmq;
 
 import lombok.RequiredArgsConstructor;
-import mall.common.model.Event;
+import mall.common.dto.Event;
 import mall.core.eventing.EventPublisher;
 import mall.core.util.StringUtils;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;

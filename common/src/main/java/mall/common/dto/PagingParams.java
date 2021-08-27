@@ -1,4 +1,4 @@
-package mall.common.model;
+package mall.common.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

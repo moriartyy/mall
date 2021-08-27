@@ -1,4 +1,4 @@
-package mall.common.model;
+package mall.common.event;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

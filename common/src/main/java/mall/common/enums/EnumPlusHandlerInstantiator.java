@@ -1,4 +1,4 @@
-package mall.common.model;
+package mall.common.enums;
 
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.cfg.HandlerInstantiator;

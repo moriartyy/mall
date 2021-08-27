@@ -1,6 +1,6 @@
 package mall.common.util;
 
-import mall.common.model.EnumPlus;
+import mall.common.enums.EnumPlus;
 
 import java.util.Arrays;
 import java.util.HashMap;

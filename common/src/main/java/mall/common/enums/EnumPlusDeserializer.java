@@ -1,4 +1,4 @@
-package mall.common.model;
+package mall.common.enums;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

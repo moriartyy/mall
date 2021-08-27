@@ -1,6 +1,6 @@
 package mall.order.service.api;
 
-import mall.common.model.PageInfo;
+import mall.common.dto.PageInfo;
 import mall.order.service.api.dto.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

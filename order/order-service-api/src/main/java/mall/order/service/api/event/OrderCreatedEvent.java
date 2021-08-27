@@ -1,7 +1,7 @@
 package mall.order.service.api.event;
 
 import lombok.Getter;
-import mall.common.model.Event;
+import mall.common.event.Event;
 
 /**
  * @author walter

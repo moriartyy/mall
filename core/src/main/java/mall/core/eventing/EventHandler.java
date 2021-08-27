@@ -1,6 +1,6 @@
 package mall.core.eventing;
 
-import mall.common.model.Event;
+import mall.common.event.Event;
 import mall.core.util.ClassUtils;
 
 /**

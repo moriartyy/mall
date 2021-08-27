@@ -1,7 +1,7 @@
 package mall.order.service.controller;
 
 import lombok.RequiredArgsConstructor;
-import mall.common.model.PageInfo;
+import mall.common.dto.PageInfo;
 import mall.order.service.api.OrderService;
 import mall.order.service.api.dto.*;
 import mall.web.service.annotation.RequestParams;

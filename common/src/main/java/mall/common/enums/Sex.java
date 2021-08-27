@@ -1,4 +1,4 @@
-package mall.common.model;
+package mall.common.enums;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Getter;

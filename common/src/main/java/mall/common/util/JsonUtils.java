@@ -9,7 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
-import mall.common.model.EnumPlusHandlerInstantiator;
+import mall.common.enums.EnumPlusHandlerInstantiator;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;
