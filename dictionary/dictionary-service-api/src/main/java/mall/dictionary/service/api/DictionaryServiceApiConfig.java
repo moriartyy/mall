@@ -1,4 +1,4 @@
-package mall.dictionary.service.api.config;
+package mall.dictionary.service.api;
 
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author walter
  */
-@EnableFeignClients(basePackages = "mall.dictionary.service.api")
+@EnableFeignClients
 @Configuration
 public class DictionaryServiceApiConfig {
 }

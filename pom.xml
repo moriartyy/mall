@@ -34,9 +34,15 @@
         <mysql.version>8.0.26</mysql.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <lombok.version>1.18.20</lombok.version>
+        <orika.version>1.5.4</orika.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>

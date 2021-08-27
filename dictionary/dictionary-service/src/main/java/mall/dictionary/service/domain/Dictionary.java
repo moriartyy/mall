@@ -18,6 +18,7 @@ public class Dictionary implements Entity<Integer> {
     private String code;
     private String description;
     private List<DictionaryItem> items;
+    private Integer activity;
     private LocalDateTime createdAt;
     private String createdBy;
     private LocalDateTime updatedAt;

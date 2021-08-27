@@ -3,7 +3,7 @@ package mall.common.exception;
 /**
  * @author walter
  */
-public class SystemException extends ServiceException {
+public class SystemException extends ExceptionWithErrorCode {
 
     public SystemException(String message) {
         super(message);

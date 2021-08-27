@@ -1,7 +1,10 @@
 package mall.dictionary.service.api;
 
-import mall.common.dto.PageInfo;
-import mall.dictionary.service.api.dto.*;
+import mall.dictionary.service.api.dto.DictionaryDeleteParams;
+import mall.dictionary.service.api.dto.DictionaryGetParams;
+import mall.dictionary.service.api.dto.DictionaryInfo;
+import mall.dictionary.service.api.dto.DictionarySaveParams;
+import mall.web.service.api.Acknowledgement;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,18 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(name = "dictionary-service")
 public interface DictionaryService {
 
-    @RequestMapping(path = "dictionary/create")
-    DictionaryInfo create(DictionaryCreateParams orderCreateParams);
-
-    @RequestMapping(path = "dictionary/update")
-    DictionaryInfo update(DictionaryUpdateParams orderUpdateParams);
+    @RequestMapping(path = "dictionary/save")
+    Acknowledgement save(DictionarySaveParams orderCreateParams);
 
     @RequestMapping(path = "dictionary/get")
     DictionaryInfo get(DictionaryGetParams orderGetParams);
 
-    @RequestMapping(path = "dictionary/query")
-    PageInfo<DictionaryInfo> query(DictionaryQueryParams orderQueryParams);
-
     @RequestMapping(path = "dictionary/delete")
-    void delete(DictionaryDeleteParams orderDeleteParams);
+    Acknowledgement delete(DictionaryDeleteParams orderDeleteParams);
 }

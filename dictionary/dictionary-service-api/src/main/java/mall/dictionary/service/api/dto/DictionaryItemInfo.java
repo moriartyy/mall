@@ -2,6 +2,7 @@ package mall.dictionary.service.api.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Size;
  * @author Walter
  */
 @Data
+@Accessors(chain = true)
 public class DictionaryItemInfo {
 
     /**

@@ -26,7 +26,7 @@ class EnumPlusTest {
     enum Color implements EnumPlus {
         RED("red", 1), WHITE("white", 2);
 
-        private final String displayName;
+        private final String title;
         private final Integer value;
     }
 

@@ -1,6 +1,7 @@
 package mall.common.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 /**
  * @author walter
  */
+@Data
 public class DataChangeInfo {
     /**
      * Created at when

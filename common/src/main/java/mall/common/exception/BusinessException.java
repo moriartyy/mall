@@ -4,7 +4,7 @@ package mall.common.exception;
 /**
  * @author walter
  */
-public class BusinessException extends ServiceException {
+public class BusinessException extends ExceptionWithErrorCode {
 
     public BusinessException(String message) {
         super(message);

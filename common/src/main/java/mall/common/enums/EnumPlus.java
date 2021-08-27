@@ -11,8 +11,8 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonDeserialize(using = EnumPlusDeserializer.class)
 public interface EnumPlus {
 
-    @ApiModelProperty(value = "Display name")
-    String getDisplayName();
+    @ApiModelProperty(value = "Title")
+    String getTitle();
 
     @ApiModelProperty(value = "Value")
     Integer getValue();

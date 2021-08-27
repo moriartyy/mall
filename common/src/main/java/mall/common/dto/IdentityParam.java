@@ -1,4 +1,4 @@
-package mall.dictionary.service.api.dto;
+package mall.common.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 /**
  * @author walter
  */
-public class DictionaryDeleteParams {
+public class IdentityParam {
     /**
      * ID
      */
