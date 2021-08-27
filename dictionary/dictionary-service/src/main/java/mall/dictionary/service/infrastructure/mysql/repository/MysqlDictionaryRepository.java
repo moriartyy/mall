@@ -56,15 +56,7 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
             saveDictionary = this.dictionaryMapper::updateById;
             saveDictionaryItem = this.dictionaryItemMapper::updateById;
 
-            Set<String> valueSet = itemPOList.stream()
-                    .map(DictionaryItemPO::getValue)
-                    .collect(Collectors.toSet());
-
-            this.dictionaryItemMapper.selectByDictionaryCode(dictPO.getCode()).stream()
-                    .filter(itemPO -> valueSet.contains(itemPO.getValue()))
-                    .map(DictionaryItemPO::getId)
-                    .forEach(this.dictionaryItemMapper::deleteById);
-
+            deleteOrphanItems(dictPO, itemPOList);
         }
         saveDictionary.apply(dictPO);
         ObjectUtils.copyProperties(dictPO, dictionary);
@@ -74,6 +66,17 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
                         .map(i -> ObjectUtils.createInstanceOf(DictionaryItem.class, i))
                         .collect(Collectors.toList())
         );
+    }
+
+    private void deleteOrphanItems(DictionaryPO dictPO, List<DictionaryItemPO> itemPOList) {
+        Set<String> valueSet = itemPOList.stream()
+                .map(DictionaryItemPO::getValue)
+                .collect(Collectors.toSet());
+
+        this.dictionaryItemMapper.selectByDictionaryCode(dictPO.getCode()).stream()
+                .filter(itemPO -> !valueSet.contains(itemPO.getValue()))
+                .map(DictionaryItemPO::getId)
+                .forEach(this.dictionaryItemMapper::deleteById);
     }
 
     @Override
