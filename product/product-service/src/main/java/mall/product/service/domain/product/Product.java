@@ -1,6 +1,5 @@
 package mall.product.service.domain.product;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import mall.core.domain.Entity;
@@ -9,7 +8,7 @@ import mall.core.domain.Entity;
  * @author walter
  */
 @Getter
-@Setter(AccessLevel.PACKAGE)
+@Setter
 public class Product implements Entity<Integer> {
     /**
      * ID

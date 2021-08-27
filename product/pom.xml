@@ -11,7 +11,7 @@
     <artifactId>product</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>product-service-api</module>
+        <module>product-api</module>
         <module>product-service</module>
     </modules>
 

@@ -11,8 +11,8 @@
     <artifactId>rpc</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>rpc-service-api</module>
-        <module>rpc-service</module>
+        <module>rpc-api</module>
+        <module>rpc-core</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

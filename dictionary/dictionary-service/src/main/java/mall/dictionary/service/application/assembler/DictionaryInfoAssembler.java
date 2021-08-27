@@ -1,6 +1,6 @@
 package mall.dictionary.service.application.assembler;
 
-import mall.dictionary.service.api.dto.DictionaryInfo;
+import mall.dictionary.api.dto.DictionaryInfo;
 import mall.dictionary.service.domain.Dictionary;
 import org.springframework.stereotype.Component;
 

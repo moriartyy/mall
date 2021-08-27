@@ -4,9 +4,8 @@ import io.swagger.annotations.Api;
 import lombok.Getter;
 import mall.common.exception.BusinessException;
 import mall.common.exception.SystemException;
-import mall.web.service.api.ApiError;
-import mall.web.service.api.ApiResult;
-import mall.web.service.api.ApiStatus;
+import mall.webservice.api.Result;
+import mall.webservice.api.ResultStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,12 +37,12 @@ public class TestController {
 
     @GetMapping(path = "result1")
     public Object result1() {
-        return ApiResult.fail(ApiStatus.BUSINESS_ERROR, "INTERNAL_ERROR", ApiError.UNKNOWN);
+        return Result.fail(ResultStatus.BUSINESS_ERROR, "INTERNAL_ERROR");
     }
 
     @GetMapping(path = "result2")
     public Object result2() {
-        return ApiResult.fail(ApiStatus.SYSTEM_ERROR, "INTERNAL_ERROR", Greeting.of("Whoops"), ApiError.UNKNOWN);
+        return Result.fail(ResultStatus.SYSTEM_ERROR, "INTERNAL_ERROR", Greeting.of("Whoops"));
     }
 
     @GetMapping(path = "exp1")

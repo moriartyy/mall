@@ -2,9 +2,9 @@ package mall.product.service.interfaces.controller;
 
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import mall.common.dto.Event;
+import mall.common.event.Event;
 import mall.product.service.application.MessageManager;
-import mall.web.service.api.ApiResult;
+import mall.webservice.api.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +21,7 @@ public class MessageController {
     private final MessageManager messageManager;
 
     @RequestMapping(path = "message/check", method = {RequestMethod.GET, RequestMethod.POST})
-    public ApiResult<Event> checkMessage() {
-        return ApiResult.success((Event) messageManager.poll());
+    public Result<Event> checkMessage() {
+        return Result.success((Event) messageManager.poll());
     }
 }

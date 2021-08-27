@@ -1,13 +1,13 @@
 package mall.dictionary.service.controller;
 
 import lombok.RequiredArgsConstructor;
-import mall.dictionary.service.api.DictionaryService;
-import mall.dictionary.service.api.dto.DictionaryDeleteParams;
-import mall.dictionary.service.api.dto.DictionaryGetParams;
-import mall.dictionary.service.api.dto.DictionaryInfo;
-import mall.dictionary.service.api.dto.DictionarySaveParams;
-import mall.web.service.annotation.RequestParams;
-import mall.web.service.api.Acknowledgement;
+import mall.dictionary.api.dto.DictionaryDeleteParams;
+import mall.dictionary.api.dto.DictionaryGetParams;
+import mall.dictionary.api.dto.DictionaryInfo;
+import mall.dictionary.api.dto.DictionarySaveParams;
+import mall.dictionary.api.service.DictionaryService;
+import mall.webservice.api.Acknowledgement;
+import mall.webservice.core.annotation.RequestParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

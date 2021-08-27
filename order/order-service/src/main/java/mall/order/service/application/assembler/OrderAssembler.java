@@ -1,6 +1,6 @@
 package mall.order.service.application.assembler;
 
-import mall.order.service.api.dto.OrderInfo;
+import mall.order.api.dto.OrderInfo;
 import mall.order.service.domain.Order;
 import org.springframework.stereotype.Component;
 

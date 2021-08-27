@@ -11,7 +11,7 @@
     <artifactId>dictionary</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>dictionary-service-api</module>
+        <module>dictionary-api</module>
         <module>dictionary-service</module>
     </modules>
 </project>

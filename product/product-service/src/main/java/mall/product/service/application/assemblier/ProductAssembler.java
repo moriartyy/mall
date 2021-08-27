@@ -1,7 +1,7 @@
 package mall.product.service.application.assemblier;
 
 import lombok.RequiredArgsConstructor;
-import mall.product.service.api.dto.ProductInfo;
+import mall.product.api.dto.ProductInfo;
 import mall.product.service.domain.product.Product;
 import mall.product.service.domain.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,10 +2,10 @@ package mall.product.service.application;
 
 
 import lombok.RequiredArgsConstructor;
-import mall.product.service.api.ProductService;
-import mall.product.service.api.dto.ProductCreateParams;
-import mall.product.service.api.dto.ProductGetParams;
-import mall.product.service.api.dto.ProductInfo;
+import mall.product.api.dto.ProductCreateParams;
+import mall.product.api.dto.ProductGetParams;
+import mall.product.api.dto.ProductInfo;
+import mall.product.api.service.ProductService;
 import mall.product.service.application.assemblier.ProductAssembler;
 import mall.product.service.domain.product.Product;
 import mall.product.service.domain.product.ProductFactory;

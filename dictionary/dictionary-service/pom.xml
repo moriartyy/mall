@@ -12,12 +12,12 @@
     <dependencies>
         <dependency>
             <groupId>org.moriartyy</groupId>
-            <artifactId>dictionary-service-api</artifactId>
+            <artifactId>dictionary-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.moriartyy</groupId>
-            <artifactId>web-service</artifactId>
+            <artifactId>webservice-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
