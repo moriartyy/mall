@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -42,8 +43,8 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
     @Override
     public void save(Dictionary dictionary) {
         Tuple<DictionaryPO, List<DictionaryItemPO>> tuple = dictionaryTranslator.forward(dictionary);
-        DictionaryPO dictionaryPO = tuple.getV1();
-        List<DictionaryItemPO> dictionaryItemPOList = tuple.getV2();
+        DictionaryPO dictPO = tuple.getV1();
+        List<DictionaryItemPO> itemPOList = tuple.getV2();
 
         Function<DictionaryPO, Integer> saveDictionary;
         Function<DictionaryItemPO, Integer> saveDictionaryItem;
@@ -54,12 +55,22 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
         } else {
             saveDictionary = this.dictionaryMapper::updateById;
             saveDictionaryItem = this.dictionaryItemMapper::updateById;
+
+            Set<String> valueSet = itemPOList.stream()
+                    .map(DictionaryItemPO::getValue)
+                    .collect(Collectors.toSet());
+
+            this.dictionaryItemMapper.selectByDictionaryCode(dictPO.getCode()).stream()
+                    .filter(itemPO -> valueSet.contains(itemPO.getValue()))
+                    .map(DictionaryItemPO::getId)
+                    .forEach(this.dictionaryItemMapper::deleteById);
+
         }
-        saveDictionary.apply(dictionaryPO);
-        ObjectUtils.copyProperties(dictionaryPO, dictionary);
-        dictionaryItemPOList.forEach(saveDictionaryItem::apply);
+        saveDictionary.apply(dictPO);
+        ObjectUtils.copyProperties(dictPO, dictionary);
+        itemPOList.forEach(saveDictionaryItem::apply);
         dictionary.setItems(
-                dictionaryItemPOList.stream()
+                itemPOList.stream()
                         .map(i -> ObjectUtils.createInstanceOf(DictionaryItem.class, i))
                         .collect(Collectors.toList())
         );
