@@ -1,4 +1,4 @@
-package mall.infrastructure.mybatis.config;
+package mall.infrastructure.mybatis;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;

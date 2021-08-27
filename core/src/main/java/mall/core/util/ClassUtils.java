@@ -16,6 +16,9 @@ public class ClassUtils {
     public static <T> Class<T> resolveGenericType(Class<?> clazz, int index) {
         Class<?>[] generics = CACHE.computeIfAbsent(clazz, c -> {
             ResolvableType t = ResolvableType.forClass(clazz);
+            if (t.hasGenerics()) {
+                return t.resolveGenerics();
+            }
             ResolvableType st = t.getSuperType();
             if (st.hasGenerics()) {
                 return st.resolveGenerics();

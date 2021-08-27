@@ -29,10 +29,10 @@ public class DictionaryItemPO implements Serializable {
     private String dictionaryCode;
 
     /**
-     * Title
+     * Name
      */
-    @TableField(value = "title")
-    private String title;
+    @TableField(value = "name")
+    private String name;
 
     /**
      * Value

@@ -13,6 +13,7 @@ import mall.common.util.JsonUtils;
 import mall.dictionary.api.dto.DictionaryInfo;
 import mall.dictionary.api.dto.DictionaryItemInfo;
 import mall.dictionary.service.domain.Dictionary;
+import mall.dictionary.service.infrastructure.mysql.entity.DictionaryPO;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -38,6 +39,8 @@ class DictionaryDTOTest {
 
         System.out.println(JsonUtils.serializeToString(target));
 
+        mapperFactory.classMap(Dictionary.class, DictionaryPO.class)
+                .byDefault().register();
     }
 
     static class MyConverter<T extends EnumPlus> extends BidirectionalConverter<T, Integer> {

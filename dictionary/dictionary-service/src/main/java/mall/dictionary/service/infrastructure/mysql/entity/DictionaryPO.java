@@ -33,6 +33,12 @@ public class DictionaryPO implements Serializable {
     private String description;
 
     /**
+     * Activity
+     */
+    @TableField(value = "activity")
+    private Integer activity;
+
+    /**
      * Created at when
      */
     @TableField(value = "created_at", fill = FieldFill.INSERT)

@@ -2,9 +2,9 @@ package mall.dictionary.service.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import mall.core.domain.Entity;
+import mall.common.enums.Activity;
+import mall.core.domain.AuditableEntity;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +13,12 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class Dictionary implements Entity<Integer> {
-    private Integer id;
+public class Dictionary extends AuditableEntity<Integer> {
+
     private String code;
     private String description;
+    private Activity activity;
     private List<DictionaryItem> items;
-    private Integer activity;
-    private LocalDateTime createdAt;
-    private String createdBy;
-    private LocalDateTime updatedAt;
-    private String updatedBy;
 
     public Dictionary() {
         this.items = new ArrayList<>();

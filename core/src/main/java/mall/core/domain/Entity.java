@@ -1,11 +1,15 @@
 package mall.core.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+
 /**
  * @author walter
  */
-public interface Entity<ID> {
-
-    ID getId();
-
-    void setId(ID id);
+@Getter
+@Setter
+public abstract class Entity<ID extends Serializable> {
+    private ID id;
 }

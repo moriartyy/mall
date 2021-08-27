@@ -1,6 +1,7 @@
 package mall.dictionary.service.infrastructure.mysql.repository;
 
 import mall.common.util.Tuple;
+import mall.core.converter.ObjectConverter;
 import mall.core.util.ObjectUtils;
 import mall.dictionary.service.domain.Dictionary;
 import mall.dictionary.service.domain.DictionaryItem;
@@ -32,8 +33,8 @@ public class MysqlDictionaryRepository extends MybatisRepository<Integer, Dictio
     private final DictionaryItemMapper dictionaryItemMapper;
     private final DictionaryMapper dictionaryMapper;
 
-    protected MysqlDictionaryRepository(DictionaryMapper dictionaryMapper, DictionaryItemMapper dictionaryItemMapper) {
-        super(dictionaryMapper);
+    protected MysqlDictionaryRepository(DictionaryMapper dictionaryMapper, DictionaryItemMapper dictionaryItemMapper, ObjectConverter objectConverter) {
+        super(dictionaryMapper, objectConverter);
         this.dictionaryMapper = dictionaryMapper;
         this.dictionaryItemMapper = dictionaryItemMapper;
         this.dictionaryTranslator = new DictionaryTranslator();
