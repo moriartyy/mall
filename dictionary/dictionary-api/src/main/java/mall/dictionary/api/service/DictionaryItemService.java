@@ -16,6 +16,9 @@ public interface DictionaryItemService {
     @RequestMapping(path = "dictionary/item/save")
     Acknowledgement save(DictionaryItemSaveParams dictionaryItemSaveParams);
 
+    @RequestMapping(path = "dictionary/item/batch-save")
+    Acknowledgement batchSave(List<DictionaryItemSaveParams> dictionarySaveParamsList);
+
     @RequestMapping(path = "dictionary/item/get")
     DictionaryItemInfo get(DictionaryItemGetParams dictionaryItemGetParams);
 

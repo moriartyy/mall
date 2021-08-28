@@ -24,6 +24,11 @@ public class DictionaryItemController implements DictionaryItemService {
     }
 
     @Override
+    public Acknowledgement batchSave(List<DictionaryItemSaveParams> dictionarySaveParamsList) {
+        return dictionaryItemService.batchSave(dictionarySaveParamsList);
+    }
+
+    @Override
     public DictionaryItemInfo get(DictionaryItemGetParams dictionaryItemGetParams) {
         return dictionaryItemService.get(dictionaryItemGetParams);
     }

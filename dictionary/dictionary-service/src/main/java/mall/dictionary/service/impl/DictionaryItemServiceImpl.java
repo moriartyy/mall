@@ -13,6 +13,7 @@ import mall.dictionary.service.mapper.DictionaryMapper;
 import mall.webservice.api.Acknowledgement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,6 +33,15 @@ public class DictionaryItemServiceImpl implements DictionaryItemService {
     public Acknowledgement save(DictionaryItemSaveParams dictionaryItemSaveParams) {
         int r = this.dictionaryItemMapper.save(objectTransformer.map(dictionaryItemSaveParams, DictionaryItemEntity.class));
         return (r > 0) ? Acknowledgement.YES : Acknowledgement.NO;
+    }
+
+    @Transactional
+    @Override
+    public Acknowledgement batchSave(List<DictionaryItemSaveParams> dictionarySaveParamsList) {
+        return dictionarySaveParamsList.stream()
+                .map(this::save)
+                .reduce(Acknowledgement::merge)
+                .orElse(Acknowledgement.NO);
     }
 
     @Override

@@ -20,4 +20,8 @@ public class Acknowledgement {
 
     public static final Acknowledgement YES = new Acknowledgement("yes");
     public static final Acknowledgement NO = new Acknowledgement("no");
+
+    public Acknowledgement merge(Acknowledgement anotherAcknowledgement) {
+        return (Boolean.parseBoolean(this.acknowledged) && Boolean.parseBoolean(anotherAcknowledgement.acknowledged)) ? YES : NO;
+    }
 }
