@@ -1,11 +1,13 @@
 package mall.core.translator;
 
+import lombok.Getter;
 import mall.core.util.ObjectUtils;
 import org.springframework.core.ResolvableType;
 
 /**
  * @author walter
  */
+@Getter
 public class DefaultTranslator<A, B> implements Translator<A, B> {
 
     private final Class<A> classA;

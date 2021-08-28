@@ -1,4 +1,4 @@
-package mall.common.dto;
+package mall.dictionary.api.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -11,8 +11,7 @@ import javax.validation.constraints.NotNull;
  */
 @Getter
 @Setter
-public class PersistableInfo {
-
+public class DictionaryItemDeleteParams {
     @NotNull(message = "[ID]不能为空")
     @ApiModelProperty("ID")
     private Integer id;

@@ -1,5 +1,6 @@
 package mall.core.util;
 
+import mall.common.util.Tuple;
 import org.springframework.core.ResolvableType;
 
 import java.util.Map;
@@ -10,37 +11,65 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ClassUtils {
 
-    private static final Map<Class<?>, Class<?>[]> CACHE = new ConcurrentHashMap<>();
+    private static final Map<Tuple<Class<?>, Class<?>>, Class<?>[]> CACHE = new ConcurrentHashMap<>();
 
     @SuppressWarnings("unchecked")
-    public static <T> Class<T> resolveGenericType(Class<?> clazz, int index) {
-        Class<?>[] generics = CACHE.computeIfAbsent(clazz, c -> {
-            ResolvableType t = ResolvableType.forClass(clazz);
-            if (t.hasGenerics()) {
-                return t.resolveGenerics();
-            }
-            ResolvableType st = t.getSuperType();
-            if (st.hasGenerics()) {
-                return st.resolveGenerics();
-            }
-            ResolvableType[] ifs = t.getInterfaces();
-            for (ResolvableType i : ifs) {
-                Class<?>[] gs = i.resolveGenerics();
-                if (gs.length > index) {
-                    return gs;
-                }
-            }
-            return new Class<?>[0];
-        });
+    public static <T> Class<T> resolveGenericType(Class<?> sourceClass, int index) {
+        Class<?>[] generics = resolveGenericTypes(sourceClass);
 
         if (index >= generics.length) {
-            throw new IllegalArgumentException(clazz.getName() + " has no generic type at index " + index);
+            throw new IllegalArgumentException(sourceClass.getName() + " has no generic type at index " + index);
         }
 
         return (Class<T>) generics[index];
     }
 
-    public static <T> Class<T> resolveGenericType(Class<?> clazz) {
-        return resolveGenericType(clazz, 0);
+    public static <T> Class<T> resolveGenericType(Class<?> sourceClass) {
+        return resolveGenericType(sourceClass, 0);
     }
+
+    public static Class<?> resolveGenericType(Class<?> sourceClass, Class<?> originalClass, int index) {
+        return resolveGenericTypes(sourceClass, originalClass)[index];
+    }
+
+    public static Class<?>[] resolveGenericTypes(Class<?> sourceClass) {
+        return CACHE.computeIfAbsent(Tuple.of(sourceClass, Object.class), tuple -> {
+            ResolvableType t = ResolvableType.forClass(sourceClass);
+            do {
+                if (t.hasGenerics()) {
+                    return t.resolveGenerics();
+                } else {
+                    for (ResolvableType i : t.getInterfaces()) {
+                        if (i.hasGenerics()) {
+                            return i.resolveGenerics();
+                        }
+                    }
+                }
+            } while ((t = t.getSuperType()) != ResolvableType.NONE);
+            return new Class[0];
+        });
+    }
+
+    public static Class<?>[] resolveGenericTypes(Class<?> sourceClass, Class<?> originalClass) {
+        return CACHE.computeIfAbsent(Tuple.of(sourceClass, originalClass), tuple -> {
+            ResolvableType t = ResolvableType.forClass(sourceClass);
+            if (originalClass.isInterface()) {
+                do {
+                    for (ResolvableType i : t.getInterfaces()) {
+                        if (i.getRawClass() == originalClass) {
+                            return i.resolveGenerics();
+                        }
+                    }
+                } while ((t = t.getSuperType()) != ResolvableType.NONE);
+            } else {
+                do {
+                    if (t.getRawClass() == originalClass) {
+                        return t.resolveGenerics();
+                    }
+                } while ((t = t.getSuperType()) != ResolvableType.NONE);
+            }
+            return new Class[0];
+        });
+    }
+
 }

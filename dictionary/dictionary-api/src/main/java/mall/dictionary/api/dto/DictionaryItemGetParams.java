@@ -9,14 +9,12 @@ import lombok.experimental.Accessors;
 /**
  * @author walter
  */
-@ApiModel(description = "DictionaryGetParams")
+@ApiModel(description = "DictionaryItemGetParams")
 @Getter
 @Setter
 @Accessors(chain = true)
-public class DictionaryGetParams {
+public class DictionaryItemGetParams {
+
     @ApiModelProperty("ID")
     private Integer id;
-
-    @ApiModelProperty("Code")
-    private String code;
 }

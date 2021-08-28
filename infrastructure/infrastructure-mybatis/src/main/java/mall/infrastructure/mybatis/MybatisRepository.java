@@ -6,14 +6,13 @@ import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Getter;
-import mall.core.converter.ObjectConverter;
 import mall.core.domain.Entity;
 import mall.core.domain.Repository;
 import mall.core.domain.query.Query;
 import mall.core.domain.query.QueryResult;
+import mall.core.transformation.ObjectTransformer;
 import mall.core.util.ClassUtils;
 import mall.core.util.ObjectUtils;
-import org.springframework.core.ResolvableType;
 
 import java.io.Serializable;
 import java.util.List;
@@ -28,18 +27,18 @@ import java.util.stream.Collectors;
 public abstract class MybatisRepository<ID extends Serializable, E extends Entity<ID>, PO> implements Repository<ID, E> {
 
     private final BaseMapper<PO> mapper;
-    private final ObjectConverter objectConverter;
+    private final ObjectTransformer objectTransformer;
     private final Map<String, String> propertyToColumnMap;
     private final Class<PO> poClass;
     private final Class<E> entityClass;
 
     @SuppressWarnings("unchecked")
-    protected MybatisRepository(BaseMapper<PO> mapper, ObjectConverter objectConverter) {
+    protected MybatisRepository(BaseMapper<PO> mapper, ObjectTransformer objectTransformer) {
         this.mapper = mapper;
-        Class<?>[] generics = ResolvableType.forClass(getClass()).getSuperType().resolveGenerics();
+        Class<?>[] generics = ClassUtils.resolveGenericTypes(getClass(), MybatisRepository.class);
         this.entityClass = (Class<E>) generics[1];
         this.poClass = (Class<PO>) generics[2];
-        this.objectConverter = objectConverter;
+        this.objectTransformer = objectTransformer;
         this.propertyToColumnMap = TableInfoHelper.getTableInfo(ClassUtils.resolveGenericType(getClass(), 3))
                 .getFieldList()
                 .stream()
@@ -48,7 +47,7 @@ public abstract class MybatisRepository<ID extends Serializable, E extends Entit
 
     @Override
     public void save(E entity) {
-        PO po = objectConverter.convert(entity, poClass);
+        PO po = objectTransformer.map(entity, poClass);
         if (entity.getId() == null) {
             this.mapper.insert(po);
         } else {
@@ -104,6 +103,6 @@ public abstract class MybatisRepository<ID extends Serializable, E extends Entit
     }
 
     protected E toEntity(PO po) {
-        return this.objectConverter.convert(po, this.entityClass);
+        return this.objectTransformer.map(po, this.entityClass);
     }
 }

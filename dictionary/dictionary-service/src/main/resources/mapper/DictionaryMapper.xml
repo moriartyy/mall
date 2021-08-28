@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mall.dictionary.service.infrastructure.mysql.mapper.DictionaryMapper">
 
-    <resultMap id="BaseResultMap" type="mall.dictionary.service.infrastructure.mysql.entity.DictionaryPO">
+    <resultMap id="BaseResultMap" type="mall.dictionary.service.entity.DictionaryEntity">
         <id property="id" column="id" jdbcType="INTEGER"/>
         <result property="code" column="code" jdbcType="VARCHAR"/>
         <result property="description" column="description" jdbcType="VARCHAR"/>

@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface DictionaryService {
 
     @RequestMapping(path = "dictionary/save")
-    Acknowledgement save(DictionarySaveParams orderCreateParams);
+    Acknowledgement save(DictionarySaveParams dictionarySaveParams);
 
     @RequestMapping(path = "dictionary/get")
-    DictionaryInfo get(DictionaryGetParams orderGetParams);
+    DictionaryInfo get(DictionaryGetParams dictionaryGetParams);
 
     @RequestMapping(path = "dictionary/delete")
-    Acknowledgement delete(DictionaryDeleteParams orderDeleteParams);
+    Acknowledgement delete(DictionaryDeleteParams dictionaryDeleteParams);
 }

@@ -1,7 +1,9 @@
 package mall.common.dto;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,7 +13,9 @@ import java.time.LocalDateTime;
 /**
  * @author walter
  */
-@Data
+@Getter
+@Setter
+@ApiModel(parent = PersistableInfo.class)
 public class AuditableInfo extends PersistableInfo {
     /**
      * Created at when

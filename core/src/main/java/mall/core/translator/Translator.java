@@ -1,12 +1,20 @@
 package mall.core.translator;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author walter
  */
-public interface Translator<A, B> {
+public interface Translator<S, D> {
 
-    B forward(A a);
+    D forward(S s);
 
-    A backward(B a);
+    default List<D> forward(List<S> sList) {
+        return sList.stream().map(this::forward).collect(Collectors.toList());
+    }
+
+    S backward(D a);
+
 
 }

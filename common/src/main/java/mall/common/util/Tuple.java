@@ -1,11 +1,13 @@
 package mall.common.util;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
  * @author walter
  */
+@EqualsAndHashCode
 @Getter
 @RequiredArgsConstructor(staticName = "of")
 public class Tuple<A, B> {

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author walter
  */
-@MapperScan("mall.dictionary.service.infrastructure.mysql.mapper")
+@MapperScan("mall.dictionary.service.mapper")
 @SpringBootApplication
 public class DictionaryServiceApplication {
 

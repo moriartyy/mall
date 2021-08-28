@@ -11,12 +11,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * @author Walter
+ * @author walter
  */
-@ApiModel(description = "DictionaryItemInfo", parent = PersistableInfo.class)
+@ApiModel(description = "DictionaryItemSaveParams", parent = PersistableInfo.class)
 @Getter
 @Setter
-public class DictionaryItemInfo extends PersistableInfo {
+public class DictionaryItemSaveParams extends PersistableInfo {
 
     @NotBlank(message = "[Name]不能为空")
     @Size(max = 45, message = "[Name]编码长度不能超过45")
@@ -41,5 +41,4 @@ public class DictionaryItemInfo extends PersistableInfo {
     @Size(max = 45, message = "[dictionaryCode]编码长度不能超过500")
     @ApiModelProperty("dictionaryCode")
     private String dictionaryCode;
-
 }

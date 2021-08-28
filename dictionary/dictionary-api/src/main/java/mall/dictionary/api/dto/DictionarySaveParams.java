@@ -13,21 +13,14 @@ import java.util.List;
 @ApiModel(description = "DictionarySaveParams")
 public class DictionarySaveParams {
 
-    /**
-     * ID
-     */
     @ApiModelProperty("ID")
     private Integer id;
-    /**
-     * Code
-     */
+
     @NotBlank(message = "[Code]不能为空")
     @Size(max = 45, message = "[Code]编码长度不能超过45")
     @ApiModelProperty("Code")
     private String code;
-    /**
-     * Description
-     */
+
     @Size(max = 300, message = "Description编码长度不能超过300")
     @ApiModelProperty("Description")
     private String description;
@@ -39,5 +32,10 @@ public class DictionarySaveParams {
     @Size(min = 0, max = 1)
     @ApiModelProperty("Activity")
     private Integer activity;
+
+    @NotBlank(message = "[OrderType]不能为空")
+    @Size(min = 1, max = 2)
+    @ApiModelProperty("OrderType")
+    private Integer orderType;
 
 }
