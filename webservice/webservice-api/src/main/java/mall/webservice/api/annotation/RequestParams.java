@@ -1,4 +1,4 @@
-package mall.webservice.core.annotation;
+package mall.webservice.api.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

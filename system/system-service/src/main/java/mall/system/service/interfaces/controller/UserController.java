@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import mall.system.api.dto.UserGetParams;
 import mall.system.api.dto.UserInfo;
 import mall.system.api.service.UserService;
-import mall.webservice.core.annotation.RequestParams;
+import mall.webservice.api.annotation.RequestParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

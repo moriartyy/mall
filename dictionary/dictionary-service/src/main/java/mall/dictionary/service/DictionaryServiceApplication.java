@@ -1,6 +1,7 @@
 package mall.dictionary.service;
 
 import mall.core.bootstrap.Application;
+import mall.dictionary.api.DictionaryApiConfig;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author walter
  */
 @MapperScan("mall.dictionary.service.mapper")
-@SpringBootApplication
+@SpringBootApplication(exclude = DictionaryApiConfig.class)
 public class DictionaryServiceApplication {
 
     public static void main(String[] args) {

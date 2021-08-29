@@ -2,7 +2,6 @@ package mall.webservice.core.config;
 
 import mall.common.enums.EnumPlusHandlerInstantiator;
 import mall.common.util.JsonUtils;
-import mall.webservice.core.annotation.RequestParamsResolver;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;

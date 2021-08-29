@@ -1,4 +1,4 @@
-package mall.webservice.api;
+package mall.webservice.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;

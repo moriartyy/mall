@@ -2,6 +2,8 @@ package mall.dictionary.api.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -10,6 +12,8 @@ import java.util.List;
 /**
  * @author walter
  */
+@Getter
+@Setter
 @ApiModel(description = "DictionarySaveParams")
 public class DictionarySaveParams {
 

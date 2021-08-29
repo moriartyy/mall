@@ -1,5 +1,6 @@
-package mall.webservice.core.annotation;
+package mall.webservice.core.config;
 
+import mall.webservice.api.annotation.RequestParams;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.converter.HttpMessageConverter;

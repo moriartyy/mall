@@ -1,30 +1,38 @@
 package mall.dictionary.api.service;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import mall.dictionary.api.dto.*;
-import mall.webservice.api.Acknowledgement;
+import mall.webservice.api.dto.Acknowledgement;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 /**
  * @author walter
  */
-@FeignClient(name = "dictionary-service")
+@Api("dictionary-item-service")
+@FeignClient(name = "dictionary-item-service")
 public interface DictionaryItemService {
 
-    @RequestMapping(path = "dictionary/item/save")
+    @ApiOperation(value = "save")
+    @PostMapping(path = "dictionary/item/save")
     Acknowledgement save(DictionaryItemSaveParams dictionaryItemSaveParams);
 
-    @RequestMapping(path = "dictionary/item/batch-save")
+    @ApiOperation(value = "batch-save")
+    @PostMapping(path = "dictionary/item/batch-save")
     Acknowledgement batchSave(List<DictionaryItemSaveParams> dictionarySaveParamsList);
 
-    @RequestMapping(path = "dictionary/item/get")
+    @ApiOperation(value = "get")
+    @PostMapping(path = "dictionary/item/get")
     DictionaryItemInfo get(DictionaryItemGetParams dictionaryItemGetParams);
 
-    @RequestMapping(path = "dictionary/item/delete")
+    @ApiOperation(value = "delete")
+    @PostMapping(path = "dictionary/item/delete")
     Acknowledgement delete(DictionaryItemDeleteParams dictionaryItemDeleteParams);
 
-    @RequestMapping(path = "dictionary/item/query")
+    @ApiOperation(value = "query")
+    @PostMapping(path = "dictionary/item/query")
     List<DictionaryItemInfo> query(DictionaryItemQueryParams dictionaryItemQueryParams);
 }

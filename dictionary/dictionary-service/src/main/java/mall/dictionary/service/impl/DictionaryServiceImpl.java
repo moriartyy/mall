@@ -11,7 +11,7 @@ import mall.dictionary.api.service.DictionaryService;
 import mall.dictionary.service.entity.DictionaryEntity;
 import mall.dictionary.service.mapper.DictionaryItemMapper;
 import mall.dictionary.service.mapper.DictionaryMapper;
-import mall.webservice.api.Acknowledgement;
+import mall.webservice.api.dto.Acknowledgement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -20,10 +20,6 @@ import javax.validation.constraints.Size;
 @Accessors(chain = true)
 public class DictionaryInfo extends AuditableInfo {
 
-    @NotNull(message = "[ID]不能为空")
-    @ApiModelProperty("ID")
-    private Integer id;
-
     @NotBlank(message = "[Code]不能为空")
     @Size(max = 45, message = "编码长度不能超过45")
     @ApiModelProperty("Code")

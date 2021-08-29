@@ -6,10 +6,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
-import mall.webservice.api.Result;
-import mall.webservice.api.ResultStatus;
+import mall.webservice.api.dto.Result;
+import mall.webservice.api.dto.ResultStatus;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +22,6 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Response;
 import springfox.documentation.spi.DocumentationType;
@@ -33,9 +35,10 @@ import java.util.List;
  * @author walter
  */
 @Configuration
-public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
+public class SwaggerConfig implements WebMvcConfigurer, EnvironmentAware, ApplicationContextAware {
 
     private Environment environment;
+    private ApplicationContext applicationContext;
 
     @Override
     public void setEnvironment(Environment environment) {
@@ -44,11 +47,18 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
 
     @Bean
     public Docket docket(TypeResolver typeResolver) {
+        Package bootstrapClassPackage = applicationContext.getBeansWithAnnotation(SpringBootApplication.class)
+                .values().toArray()[0].getClass().getPackage();
         return new Docket(DocumentationType.OAS_30)
                 .enable(true)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+                .apis(h -> {
+                    if (h.findControllerAnnotation(Api.class).isPresent()) {
+                        return h.declaringClass().getPackage().getName().startsWith(bootstrapClassPackage.getName());
+                    }
+                    return false;
+                })
                 .paths(PathSelectors.any())
                 .build()
                 .globalResponses(HttpMethod.GET, getGlobalResponses())
@@ -57,6 +67,11 @@ public class SwaggerConfig implements EnvironmentAware, WebMvcConfigurer {
 //                .additionalModels(typeResolver.resolve(ApiResultModel.class))
                 ;
 
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
     }
 
     @Getter

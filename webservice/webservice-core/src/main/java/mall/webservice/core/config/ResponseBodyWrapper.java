@@ -1,7 +1,7 @@
 package mall.webservice.core.config;
 
 import mall.common.util.JsonUtils;
-import mall.webservice.api.Result;
+import mall.webservice.api.dto.Result;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
