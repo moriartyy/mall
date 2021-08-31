@@ -26,8 +26,12 @@ public class OrikaObjectTransformer implements ObjectTransformer, InitializingBe
         this.mapperFactory = mapperFactory;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <S, D> D map(S srcObj, Class<D> destClass) {
+        if (destClass.isInstance(srcObj)) {
+            return (D) srcObj;
+        }
         return mapperFacade.map(srcObj, destClass);
     }
 

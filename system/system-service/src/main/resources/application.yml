@@ -5,12 +5,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/system?useUnicode=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&serverTimezone=Asia/Shanghai
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
 
 mybatis-plus:
   configuration:

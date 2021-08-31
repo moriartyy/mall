@@ -3,7 +3,7 @@ package mall.core.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
+import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 /**
@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Setter
-public class AuditableEntity<ID extends Serializable> extends Entity<ID> {
+@MappedSuperclass
+public class AuditableEntity<ID> extends Entity<ID> {
     private LocalDateTime createdAt;
     private String createdBy;
     private LocalDateTime updatedAt;

@@ -1,5 +1,6 @@
 package mall.system.service;
 
+import mall.system.service.config.SystemServiceApiConfig;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author walter
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = SystemServiceApiConfig.class)
 public class SystemServiceApplication {
 
     public static void main(String[] args) {
@@ -15,4 +16,5 @@ public class SystemServiceApplication {
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
     }
+
 }

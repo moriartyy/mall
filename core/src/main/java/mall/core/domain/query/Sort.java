@@ -56,5 +56,13 @@ public class Sort {
     public static class Order {
         private final String fieldName;
         private final Direction direction;
+
+        public boolean isAsc() {
+            return direction == Direction.ASC;
+        }
+
+        public boolean isDesc() {
+            return direction == Direction.DESC;
+        }
     }
 }
