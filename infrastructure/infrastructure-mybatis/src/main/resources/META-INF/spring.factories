@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-mall.infrastructure.repository.mybatis.MybatisRepositoryConfig
+mall.infrastructure.repository.mybatis.config.MybatisRepositoryConfig

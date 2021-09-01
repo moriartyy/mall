@@ -10,7 +10,6 @@ import java.io.Serializable;
 
 /**
  * DictionaryItem
- *
  * @TableName dictionary_item
  */
 @TableName(value = "dictionary_item")
@@ -19,38 +18,33 @@ public class DictionaryItemEntity implements Serializable {
     /**
      * ID
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(type = IdType.AUTO)
     private Integer id;
-
-    /**
-     * DictionaryCode
-     */
-    @TableField(value = "dictionary_code")
-    private String dictionaryCode;
 
     /**
      * Name
      */
-    @TableField(value = "name")
     private String name;
 
     /**
      * Value
      */
-    @TableField(value = "value")
     private String value;
 
     /**
-     * Sort
+     * Order
      */
-    @TableField(value = "sort")
-    private Short sort;
+    private Short order;
 
     /**
      * Link
      */
-    @TableField(value = "link")
     private String link;
+
+    /**
+     * Dictionary Code
+     */
+    private String dictionaryCode;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

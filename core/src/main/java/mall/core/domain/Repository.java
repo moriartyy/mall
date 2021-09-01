@@ -5,13 +5,14 @@ import mall.core.domain.query.Query;
 import mall.core.domain.query.QueryResult;
 import mall.core.domain.query.Sort;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
 /**
  * @author walter
  */
-public interface Repository<ID, T extends Entity<ID>> {
+public interface Repository<ID extends Serializable, T extends Entity<ID>> {
 
     int NO_LIMIT = Integer.MAX_VALUE;
 

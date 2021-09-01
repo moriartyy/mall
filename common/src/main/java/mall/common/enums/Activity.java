@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum Activity implements EnumPlus {
-    ENABLED("已启用", 1), DISABLED("已禁用", 0);
+    ACTIVATED("已启用", 1), FORBIDDEN("已禁用", 0);
 
     private final String title;
     private final Integer value;

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author walter
  */
-@MapperScan("mall.dictionary.service.mapper")
+@MapperScan("mall.dictionary.service.infrastructure.mapper")
 @SpringBootApplication(exclude = DictionaryApiConfig.class)
 public class DictionaryServiceApplication {
 

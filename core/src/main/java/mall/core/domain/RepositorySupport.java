@@ -9,6 +9,7 @@ import mall.core.domain.query.SimpleQuery;
 import mall.core.transformation.ObjectTransformer;
 import mall.core.util.ClassUtils;
 
+import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +19,7 @@ import java.util.Optional;
  */
 @Getter(AccessLevel.PUBLIC)
 @SuppressWarnings("unchecked")
-public abstract class RepositorySupport<ID, T extends Entity<ID>, PO> implements Repository<ID, T> {
+public abstract class RepositorySupport<ID extends Serializable, T extends Entity<ID>, PO> implements Repository<ID, T> {
 
     private final ObjectTransformer objectTransformer;
     private final Class<T> entityClass;
