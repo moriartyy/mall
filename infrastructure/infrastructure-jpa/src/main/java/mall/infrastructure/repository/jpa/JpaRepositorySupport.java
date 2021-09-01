@@ -4,7 +4,8 @@ import mall.core.domain.Entity;
 import mall.core.domain.EntityNotExistException;
 import mall.core.domain.Persistable;
 import mall.core.domain.RepositorySupport;
-import mall.core.domain.query.QueryResult;
+import mall.core.domain.query.PageQuery;
+import mall.core.domain.query.PageQueryResult;
 import mall.core.domain.query.SimpleQuery;
 import mall.core.transformation.ObjectTransformer;
 import org.springframework.data.domain.Page;
@@ -57,16 +58,28 @@ public abstract class JpaRepositorySupport<ID extends Serializable, T extends En
     }
 
     @Override
-    protected QueryResult<T> doSimpleQuery(SimpleQuery<T> query) {
-        Specification<P> spec = JpaUtils.resolveSpecification(query);
+    protected List<T> doSimpleQuery(SimpleQuery<T> query) {
+        Specification<P> spec = JpaUtils.toSpecification(query.getCriteria());
         if (query.getLimit() == NO_LIMIT) {
-            List<P> entityList = this.dao.findAll(spec);
-            return buildQueryResult(entityList, entityList.size());
+            List<P> poList = this.dao.findAll(spec);
+            return convert(poList);
         } else {
-            Pageable pageable = PageRequest.of(query.getOffset() / query.getLimit(), query.getLimit(), JpaUtils.resolveSort(query));
+            Pageable pageable = PageRequest.of(0, query.getLimit(), JpaUtils.toJpaSort(query.getSort()));
             Page<P> page = this.dao.findAll(spec, pageable);
-            return buildQueryResult(page.getContent(), page.getTotalElements());
+            return convert(page.getContent());
         }
+    }
+
+    @Override
+    protected PageQueryResult<T> doPageQuery(PageQuery<T> query) {
+        Specification<P> spec = JpaUtils.toSpecification(query.getCriteria());
+        Pageable pageable = PageRequest.of(query.getPageIndex(), query.getPageSize(), JpaUtils.toJpaSort(query.getSort()));
+        Page<P> page = this.dao.findAll(spec, pageable);
+        return query.createResult()
+                .totalPages(page.getTotalPages())
+                .totalItems(page.getTotalElements())
+                .items(convert(page.getContent()))
+                .build();
     }
 
 }

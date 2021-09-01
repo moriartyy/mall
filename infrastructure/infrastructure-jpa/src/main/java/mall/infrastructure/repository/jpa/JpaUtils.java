@@ -1,6 +1,9 @@
 package mall.infrastructure.repository.jpa;
 
-import mall.core.domain.query.*;
+import mall.core.domain.query.AndCriteria;
+import mall.core.domain.query.Criteria;
+import mall.core.domain.query.FieldCriteria;
+import mall.core.domain.query.OrCriteria;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -15,15 +18,15 @@ import java.util.stream.Collectors;
  */
 public class JpaUtils {
 
-    public static Sort resolveSort(SimpleQuery<?> query) {
-        return Sort.by(query.getSort().getOrders().stream()
+    public static Sort toJpaSort(mall.core.domain.query.Sort sort) {
+        return Sort.by(sort.getOrders().stream()
                 .map(o -> new Sort.Order(o.isAsc() ? Sort.Direction.ASC : Sort.Direction.DESC, o.getFieldName()))
                 .collect(Collectors.toList())
         );
     }
 
-    public static <PO> Specification<PO> resolveSpecification(SimpleQuery<?> query) {
-        return (r, q, b) -> toPredicate(query.getCriteria(), b, r);
+    public static <PO> Specification<PO> toSpecification(Criteria criteria) {
+        return (r, q, b) -> toPredicate(criteria, b, r);
     }
 
     public static Predicate toPredicate(Criteria criteria, CriteriaBuilder builder, Root<?> root) {

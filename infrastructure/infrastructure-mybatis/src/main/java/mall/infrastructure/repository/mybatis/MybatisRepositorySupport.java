@@ -8,7 +8,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Getter;
 import mall.core.domain.Entity;
 import mall.core.domain.RepositorySupport;
-import mall.core.domain.query.QueryResult;
+import mall.core.domain.query.PageQuery;
+import mall.core.domain.query.PageQueryResult;
 import mall.core.domain.query.SimpleQuery;
 import mall.core.transformation.ObjectTransformer;
 
@@ -57,16 +58,33 @@ public class MybatisRepositorySupport<ID extends Serializable, E extends Entity<
     }
 
     @Override
-    protected QueryResult<E> doSimpleQuery(SimpleQuery<E> query) {
+    protected List<E> doSimpleQuery(SimpleQuery<E> query) {
         QueryWrapper<PO> queryWrapper = new QueryWrapper<>();
-        MybatisUtils.fillWithQuery(queryWrapper, query, propertyToColumnMap);
-        if (query.getLimit() == NO_LIMIT && query.getOffset() == 0) {
+        MybatisUtils.fillWithCriteria(queryWrapper, query.getCriteria(), propertyToColumnMap);
+        MybatisUtils.fillSort(queryWrapper, query.getSort(), propertyToColumnMap);
+        if (query.getLimit() == NO_LIMIT) {
             List<PO> poList = this.mapper.selectList(queryWrapper);
-            return buildQueryResult(poList, poList.size());
+            return convert(poList);
         } else {
-            Page<PO> paging = new Page<>(query.getOffset() / query.getLimit(), query.getLimit());
+            Page<PO> paging = new Page<>(0, query.getLimit());
             Page<PO> page = this.mapper.selectPage(paging, queryWrapper);
-            return buildQueryResult(page.getRecords(), page.getTotal());
+            return convert(page.getRecords());
         }
     }
+
+    @Override
+    protected PageQueryResult<E> doPageQuery(PageQuery<E> query) {
+        QueryWrapper<PO> queryWrapper = new QueryWrapper<>();
+        MybatisUtils.fillWithCriteria(queryWrapper, query.getCriteria(), propertyToColumnMap);
+        MybatisUtils.fillSort(queryWrapper, query.getSort(), propertyToColumnMap);
+        Page<PO> paging = new Page<>(query.getPageIndex() + 1, query.getPageSize());
+        Page<PO> page = this.mapper.selectPage(paging, queryWrapper);
+        return query.createResult()
+                .totalPages(page.getPages())
+                .totalItems(page.getTotal())
+                .items(convert(page.getRecords()))
+                .build();
+
+    }
+
 }

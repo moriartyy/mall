@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * @author walter
@@ -31,4 +32,7 @@ public class UserSaveParams {
     @NotNull(message = "[activity]不能为空")
     @ApiModelProperty("Activity")
     private Integer activity;
+
+    @ApiModelProperty("Roles")
+    private List<Integer> roles;
 }

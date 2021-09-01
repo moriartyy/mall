@@ -2,14 +2,13 @@ package mall.system.service;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import mall.common.dto.PageInfo;
 import mall.system.service.dto.*;
 import mall.webservice.api.dto.Acknowledgement;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
 
 /**
  * @author walter
@@ -32,5 +31,5 @@ public interface UserService {
 
     @ApiOperation(value = "query")
     @PostMapping(path = "user/query")
-    List<UserInfo> query(UserQueryParams userQueryParams);
+    PageInfo<UserInfo> query(UserQueryParams userQueryParams);
 }

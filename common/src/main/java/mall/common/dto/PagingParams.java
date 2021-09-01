@@ -9,9 +9,9 @@ import lombok.Data;
 @Data
 public abstract class PagingParams {
 
-    @ApiModelProperty(value = "Request page number")
-    private long pageNo;
+    @ApiModelProperty(value = "Request page index, start at 0")
+    private Integer pageIndex;
 
     @ApiModelProperty(value = "Request page size")
-    private long pageSize;
+    private Integer pageSize;
 }

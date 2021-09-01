@@ -11,12 +11,7 @@ import java.util.Map;
  */
 public class MybatisUtils {
 
-    public static <T, S> void fillWithQuery(QueryWrapper<T> queryWrapper, SimpleQuery<S> query, Map<String, String> fieldToColumnMap) {
-        fillWithCriteria(queryWrapper, query.getCriteria(), fieldToColumnMap);
-        fillWithSort(queryWrapper, query.getSort(), fieldToColumnMap);
-    }
-
-    private static <T> void fillWithSort(QueryWrapper<T> queryWrapper, Sort sort, Map<String, String> fieldToColumnMap) {
+    public static <T> void fillSort(QueryWrapper<T> queryWrapper, Sort sort, Map<String, String> fieldToColumnMap) {
         sort.forEach(order -> {
             String columnName = fieldToColumnMap.get(order.getFieldName());
             if (order.getDirection() == Sort.Direction.ASC) {

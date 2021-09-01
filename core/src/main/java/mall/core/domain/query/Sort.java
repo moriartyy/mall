@@ -31,6 +31,15 @@ public class Sort {
         return this;
     }
 
+    public static Sort of(String fieldName) {
+        return of(fieldName, (String) null);
+    }
+
+    public static Sort of(String fieldName, String direction) {
+        Direction d = Direction.ASC.name().equalsIgnoreCase(direction) ? Direction.ASC : Direction.DESC;
+        return of(fieldName, d);
+    }
+
     public static Sort of(String fieldName, Direction direction) {
         return new Sort().add(new Order(fieldName, direction));
     }

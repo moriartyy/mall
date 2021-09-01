@@ -3,6 +3,7 @@ package mall.system.service.dto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import mall.common.dto.PagingParams;
 
 import javax.validation.constraints.Size;
 
@@ -12,7 +13,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class UserQueryParams {
+public class UserQueryParams extends PagingParams {
 
     @Size(max = 45, message = "编码长度不能超过45")
     @ApiModelProperty("Name")
