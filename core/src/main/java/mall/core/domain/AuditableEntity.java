@@ -16,12 +16,11 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @MappedSuperclass
-public class AuditableEntity<ID extends Serializable> extends Entity<ID> {
+public abstract class AuditableEntity<ID extends Serializable> extends Entity<ID> {
     private LocalDateTime createdAt;
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
-
 
     @PrePersist
     public void beforeInsert() {

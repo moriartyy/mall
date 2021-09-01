@@ -5,5 +5,5 @@ import mall.core.domain.Repository;
 /**
  * @author walter
  */
-public interface DictionaryItemRepository extends Repository<Integer, Dictionary> {
+public interface DictionaryItemRepository extends Repository<Integer, DictionaryItem> {
 }

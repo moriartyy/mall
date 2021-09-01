@@ -2,25 +2,23 @@ package mall.system.service.domain.resouce;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
+import mall.core.domain.AuditableEntity;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
 
 /**
  * @author Walter
  */
+@Entity
 @Getter
 @Setter
-public class Resource {
-
-    private Integer id;
+@Accessors(chain = true)
+public class Resource extends AuditableEntity<Integer> {
     private String name;
     private String code;
     private String description;
     private String route;
     private Integer moduleId;
-    private LocalDateTime createdAt;
-    private String createdBy;
-    private LocalDateTime updatedAt;
-    private String updatedBy;
 
 }

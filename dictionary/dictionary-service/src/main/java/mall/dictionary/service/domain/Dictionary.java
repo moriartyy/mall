@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import mall.common.enums.Activity;
 import mall.core.domain.AuditableEntity;
-import mall.dictionary.api.enums.SortOrder;
+import mall.dictionary.service.enums.SortOrder;
 
 /**
  * @author Walter

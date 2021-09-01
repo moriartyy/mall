@@ -5,10 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 
 
@@ -18,13 +15,14 @@ import java.io.Serializable;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class Entity<ID extends Serializable> {
+public abstract class Entity<ID extends Serializable> implements Persistable<ID> {
 
     @Id
     @TableId(type = IdType.AUTO)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
 
+    @Transient
     public boolean isNew() {
         return this.id == null;
     }

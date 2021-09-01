@@ -2,23 +2,25 @@ package mall.system.service.domain.role;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
+import mall.core.domain.AuditableEntity;
 
-import java.time.LocalDateTime;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Walter
  */
+@Entity
 @Getter
 @Setter
-public class Role {
+@Accessors(chain = true)
+public class Role extends AuditableEntity<Integer> {
 
-    private Integer id;
     private String name;
-    private String code;
     private String description;
-    private LocalDateTime createdAt;
-    private String createdBy;
-    private LocalDateTime updatedAt;
-    private String updatedBy;
-
+    @ElementCollection
+    private List<RolePrivilege> privileges = new ArrayList<>();
 }

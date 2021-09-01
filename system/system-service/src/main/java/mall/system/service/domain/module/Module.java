@@ -2,23 +2,20 @@ package mall.system.service.domain.module;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
+import mall.core.domain.AuditableEntity;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
 
 /**
  * @author Walter
  */
+@Entity
 @Getter
 @Setter
-public class Module {
-
-    private Integer id;
+@Accessors(chain = true)
+public class Module extends AuditableEntity<Integer> {
     private String name;
     private String code;
     private String description;
-    private LocalDateTime createdAt;
-    private String createdBy;
-    private LocalDateTime updatedAt;
-    private String updatedBy;
-
 }

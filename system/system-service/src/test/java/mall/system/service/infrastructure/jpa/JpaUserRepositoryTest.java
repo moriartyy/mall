@@ -37,6 +37,13 @@ class JpaUserRepositoryTest {
         assertEquals(user.getName(), user2.getName());
         assertEquals(user.getActivity(), user2.getActivity());
         assertEquals(user.getRoles().size(), user2.getRoles().size());
+
+        User user2_1 = new User();
+        user2_1.setId(user2.getId());
+        user2_1.setName("Tome");
+        this.repository.save(user2_1);
+        print(this.repository.get(user.getId()));
+
         this.repository.delete(user2.getId());
         assertFalse(this.repository.exist(user2.getId()));
     }

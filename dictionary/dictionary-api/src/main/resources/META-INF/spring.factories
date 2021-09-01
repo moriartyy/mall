@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-mall.dictionary.api.DictionaryApiConfig
+mall.dictionary.service.config.DictionaryServiceApiConfig

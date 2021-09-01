@@ -2,23 +2,21 @@ package mall.system.service.domain.menu;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
+import mall.core.domain.AuditableEntity;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
 
 /**
  * @author Walter
  */
+@Entity
 @Getter
 @Setter
-public class MenuItem {
-
-    private Integer id;
+@Accessors(chain = true)
+public class MenuItem extends AuditableEntity<Integer> {
     private String name;
     private Integer parentId;
     private Integer resourceId;
-    private LocalDateTime createdAt;
-    private String createdBy;
-    private LocalDateTime updatedAt;
-    private String updatedBy;
 
 }

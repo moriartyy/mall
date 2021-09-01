@@ -19,7 +19,7 @@ public class OrikaObjectTransformer implements ObjectTransformer, InitializingBe
     private ApplicationContext applicationContext;
 
     public OrikaObjectTransformer() {
-        this(new DefaultMapperFactory.Builder().build());
+        this(new DefaultMapperFactory.Builder().mapNulls(false).build());
     }
 
     public OrikaObjectTransformer(MapperFactory mapperFactory) {

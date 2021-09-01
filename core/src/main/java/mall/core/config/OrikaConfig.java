@@ -21,7 +21,9 @@ public class OrikaConfig {
     @Bean
     @ConditionalOnMissingBean
     public ObjectTransformer objectTransformer() {
-        DefaultMapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
+        DefaultMapperFactory mapperFactory = new DefaultMapperFactory.Builder()
+                .mapNulls(false)
+                .build();
         mapperFactory.getConverterFactory().registerConverter(new EnumPlusConverter<>());
         return new OrikaObjectTransformer(mapperFactory);
     }
