@@ -26,14 +26,22 @@ public class User extends AuditableEntity<Integer> {
     private String realName;
     private Activity activity;
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<Integer> roles = new ArrayList<>();
+    private List<Integer> roles;
 
     public User addRole(int roleId) {
+        ensureRoles();
         this.roles.add(roleId);
         return this;
     }
 
+    private void ensureRoles() {
+        if (roles == null) {
+            roles = new ArrayList<>();
+        }
+    }
+
     public User removeRole(int roleId) {
+        ensureRoles();
         this.roles = this.roles.stream().filter(r -> r != roleId).collect(Collectors.toList());
         return this;
     }
