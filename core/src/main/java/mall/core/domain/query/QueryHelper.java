@@ -24,8 +24,6 @@ public class QueryHelper {
         Criteria criteria = Criteria.EMPTY;
         BeanWrapper beanWrapper = new BeanWrapperImpl(srcObj);
         PropertyDescriptor[] pds = beanWrapper.getPropertyDescriptors();
-        Integer pageIndex = null;
-        Integer pageSize = null;
         for (PropertyDescriptor pd : pds) {
 
             String name = pd.getName();

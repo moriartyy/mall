@@ -12,11 +12,11 @@
         <module>rpc</module>
         <module>core</module>
         <module>infrastructure</module>
-        <module>dictionary</module>
-        <module>order</module>
-        <module>product</module>
+        <module>dictionary-service</module>
+        <module>order-service</module>
+        <module>product-service</module>
         <module>gateway</module>
-        <module>system</module>
+        <module>system-service</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
