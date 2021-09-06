@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import mall.common.dto.AuditableInfo;
+import mall.service.dto.AuditableInfo;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

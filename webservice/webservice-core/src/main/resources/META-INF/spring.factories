@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-mall.webservice.config.WebConfig, \
-mall.webservice.config.SwaggerConfig

@@ -1,6 +1,6 @@
 package ${baseInfo.packageName};
 
-import mall.core.domain.Repository;
+import mall.service.domain.Repository;
 
 /**
 * @author Walter

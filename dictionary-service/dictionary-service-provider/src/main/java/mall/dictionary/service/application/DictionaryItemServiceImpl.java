@@ -2,15 +2,15 @@ package mall.dictionary.service.application;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.RequiredArgsConstructor;
-import mall.common.exception.BusinessException;
-import mall.core.transformation.ObjectTransformer;
 import mall.dictionary.service.DictionaryItemService;
 import mall.dictionary.service.domain.Dictionary;
 import mall.dictionary.service.domain.DictionaryItem;
 import mall.dictionary.service.dto.*;
 import mall.dictionary.service.infrastructure.mapper.DictionaryItemMapper;
 import mall.dictionary.service.infrastructure.mapper.DictionaryMapper;
-import mall.webservice.dto.Acknowledgement;
+import mall.service.exception.BusinessException;
+import mall.service.transformation.ObjectTransformer;
+import mall.web.service.dto.Acknowledgement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;

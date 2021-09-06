@@ -1,7 +1,7 @@
 package mall.infrastructure.repository.jpa.enums;
 
-import mall.common.enums.EnumPlus;
-import mall.common.util.EnumUtils;
+import mall.service.enums.EnumPlus;
+import mall.service.util.EnumUtils;
 
 import javax.persistence.AttributeConverter;
 

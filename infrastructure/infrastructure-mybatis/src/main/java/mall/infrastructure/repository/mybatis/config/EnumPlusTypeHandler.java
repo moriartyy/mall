@@ -1,7 +1,7 @@
 package mall.infrastructure.repository.mybatis.config;
 
-import mall.common.enums.EnumPlus;
-import mall.common.util.EnumUtils;
+import mall.service.enums.EnumPlus;
+import mall.service.util.EnumUtils;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 

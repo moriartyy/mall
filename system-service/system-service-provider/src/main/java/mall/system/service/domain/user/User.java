@@ -3,8 +3,8 @@ package mall.system.service.domain.user;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import mall.common.enums.Activity;
-import mall.core.domain.AuditableEntity;
+import mall.service.domain.AuditableEntity;
+import mall.service.enums.Activity;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;

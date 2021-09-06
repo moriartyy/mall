@@ -3,7 +3,7 @@ package mall.system.service.domain.role;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import mall.core.domain.AuditableEntity;
+import mall.service.domain.AuditableEntity;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;

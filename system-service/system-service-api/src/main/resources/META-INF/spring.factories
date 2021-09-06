@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-mall.system.service.config.SystemServiceApiConfig
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#mall.system.service.config.SystemServiceApiConfig

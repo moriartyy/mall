@@ -1,7 +1,7 @@
 package mall.dictionary.service;
 
-import mall.core.bootstrap.Application;
 import mall.dictionary.service.config.DictionaryServiceApiConfig;
+import mall.service.bootstrap.Application;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

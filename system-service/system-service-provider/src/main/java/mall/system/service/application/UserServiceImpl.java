@@ -1,20 +1,20 @@
 package mall.system.service.application;
 
 import lombok.RequiredArgsConstructor;
-import mall.common.dto.PageInfo;
-import mall.core.domain.query.Criteria;
-import mall.core.domain.query.PageQuery;
-import mall.core.domain.query.PageQueryResult;
-import mall.core.domain.query.QueryHelper;
-import mall.core.transformation.ObjectTransformer;
-import mall.core.util.CollectionUtils;
+import mall.service.domain.query.Criteria;
+import mall.service.domain.query.PageQuery;
+import mall.service.domain.query.PageQueryResult;
+import mall.service.domain.query.QueryHelper;
+import mall.service.dto.PageInfo;
+import mall.service.transformation.ObjectTransformer;
+import mall.service.util.CollectionUtils;
 import mall.system.service.UserService;
 import mall.system.service.domain.role.Role;
 import mall.system.service.domain.role.RoleRepository;
 import mall.system.service.domain.user.User;
 import mall.system.service.domain.user.UserRepository;
 import mall.system.service.dto.*;
-import mall.webservice.dto.Acknowledgement;
+import mall.web.service.dto.Acknowledgement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

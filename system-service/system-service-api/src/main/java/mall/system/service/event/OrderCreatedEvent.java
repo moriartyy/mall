@@ -1,7 +1,7 @@
 package mall.system.service.event;
 
 import lombok.Getter;
-import mall.common.event.Event;
+import mall.service.event.Event;
 
 /**
  * @author walter

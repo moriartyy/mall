@@ -2,9 +2,9 @@ package mall.dictionary.service.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import mall.common.enums.Activity;
-import mall.core.domain.AuditableEntity;
 import mall.dictionary.service.enums.SortOrder;
+import mall.service.domain.AuditableEntity;
+import mall.service.enums.Activity;
 
 /**
  * @author Walter

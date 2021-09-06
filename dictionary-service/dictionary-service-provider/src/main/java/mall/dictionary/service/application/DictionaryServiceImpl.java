@@ -1,9 +1,6 @@
 package mall.dictionary.service.application;
 
 import lombok.RequiredArgsConstructor;
-import mall.common.exception.BusinessException;
-import mall.core.transformation.ObjectTransformer;
-import mall.core.util.StringUtils;
 import mall.dictionary.service.DictionaryService;
 import mall.dictionary.service.domain.Dictionary;
 import mall.dictionary.service.dto.DictionaryDeleteParams;
@@ -12,8 +9,11 @@ import mall.dictionary.service.dto.DictionaryInfo;
 import mall.dictionary.service.dto.DictionarySaveParams;
 import mall.dictionary.service.infrastructure.mapper.DictionaryItemMapper;
 import mall.dictionary.service.infrastructure.mapper.DictionaryMapper;
-import mall.webservice.dto.Acknowledgement;
-import mall.webservice.exception.MissingParameterException;
+import mall.service.exception.BusinessException;
+import mall.service.transformation.ObjectTransformer;
+import mall.service.util.StringUtils;
+import mall.web.service.dto.Acknowledgement;
+import mall.web.service.exception.MissingParameterException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;

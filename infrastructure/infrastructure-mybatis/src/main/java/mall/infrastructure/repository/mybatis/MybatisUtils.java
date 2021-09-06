@@ -1,7 +1,7 @@
 package mall.infrastructure.repository.mybatis;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import mall.core.domain.query.*;
+import mall.service.domain.query.*;
 
 import java.util.List;
 import java.util.Map;

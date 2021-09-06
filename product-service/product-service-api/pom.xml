@@ -16,7 +16,7 @@
         </dependency>
         <dependency>
             <groupId>org.moriartyy</groupId>
-            <artifactId>webservice-api</artifactId>
+            <artifactId>web-service-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

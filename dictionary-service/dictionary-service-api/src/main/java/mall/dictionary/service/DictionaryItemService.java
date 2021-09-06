@@ -3,7 +3,7 @@ package mall.dictionary.service;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import mall.dictionary.service.dto.*;
-import mall.webservice.dto.Acknowledgement;
+import mall.web.service.dto.Acknowledgement;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 

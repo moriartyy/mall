@@ -2,10 +2,10 @@ package mall.product.service.interfaces.controller;
 
 import io.swagger.annotations.Api;
 import lombok.Getter;
-import mall.common.exception.BusinessException;
-import mall.common.exception.SystemException;
-import mall.webservice.dto.Result;
-import mall.webservice.dto.ResultStatus;
+import mall.service.exception.BusinessException;
+import mall.service.exception.SystemException;
+import mall.web.service.dto.Result;
+import mall.web.service.dto.ResultStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

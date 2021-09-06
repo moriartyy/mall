@@ -1,7 +1,7 @@
 package mall.infrastructure.repository.mybatis.config;
 
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
-import mall.core.domain.AuditableEntity;
+import mall.service.domain.AuditableEntity;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 

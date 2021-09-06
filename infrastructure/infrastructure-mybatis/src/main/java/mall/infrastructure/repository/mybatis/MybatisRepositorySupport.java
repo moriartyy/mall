@@ -6,12 +6,12 @@ import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Getter;
-import mall.core.domain.Entity;
-import mall.core.domain.RepositorySupport;
-import mall.core.domain.query.PageQuery;
-import mall.core.domain.query.PageQueryResult;
-import mall.core.domain.query.SimpleQuery;
-import mall.core.transformation.ObjectTransformer;
+import mall.service.domain.Entity;
+import mall.service.domain.RepositorySupport;
+import mall.service.domain.query.PageQuery;
+import mall.service.domain.query.PageQueryResult;
+import mall.service.domain.query.SimpleQuery;
+import mall.service.transformation.ObjectTransformer;
 
 import java.io.Serializable;
 import java.util.List;

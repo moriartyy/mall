@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
-import mall.common.dto.PersistableInfo;
+import mall.service.dto.PersistableInfo;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

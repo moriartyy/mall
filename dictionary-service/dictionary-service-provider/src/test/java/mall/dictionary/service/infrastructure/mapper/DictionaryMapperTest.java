@@ -1,9 +1,9 @@
 package mall.dictionary.service.infrastructure.mapper;
 
-import mall.common.enums.Activity;
 import mall.dictionary.service.DictionaryServiceApplication;
 import mall.dictionary.service.domain.Dictionary;
 import mall.dictionary.service.enums.SortOrder;
+import mall.service.enums.Activity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

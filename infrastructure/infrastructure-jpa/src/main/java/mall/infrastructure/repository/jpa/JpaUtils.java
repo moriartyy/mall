@@ -1,9 +1,9 @@
 package mall.infrastructure.repository.jpa;
 
-import mall.core.domain.query.AndCriteria;
-import mall.core.domain.query.Criteria;
-import mall.core.domain.query.FieldCriteria;
-import mall.core.domain.query.OrCriteria;
+import mall.service.domain.query.AndCriteria;
+import mall.service.domain.query.Criteria;
+import mall.service.domain.query.FieldCriteria;
+import mall.service.domain.query.OrCriteria;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 public class JpaUtils {
 
-    public static Sort toJpaSort(mall.core.domain.query.Sort sort) {
+    public static Sort toJpaSort(mall.service.domain.query.Sort sort) {
         return Sort.by(sort.getOrders().stream()
                 .map(o -> new Sort.Order(o.isAsc() ? Sort.Direction.ASC : Sort.Direction.DESC, o.getFieldName()))
                 .collect(Collectors.toList())

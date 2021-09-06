@@ -1,7 +1,7 @@
 package mall.system.service.infrastructure.jpa;
 
-import mall.core.transformation.ObjectTransformer;
 import mall.infrastructure.repository.jpa.JpaRepositorySupport;
+import mall.service.transformation.ObjectTransformer;
 import mall.system.service.domain.role.Role;
 import mall.system.service.domain.role.RoleRepository;
 import mall.system.service.infrastructure.jpa.dao.JpaRoleDao;

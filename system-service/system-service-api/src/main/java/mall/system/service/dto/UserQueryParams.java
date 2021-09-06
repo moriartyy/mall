@@ -3,7 +3,7 @@ package mall.system.service.dto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
-import mall.common.dto.PagingParams;
+import mall.service.dto.PagingParams;
 
 import javax.validation.constraints.Size;
 

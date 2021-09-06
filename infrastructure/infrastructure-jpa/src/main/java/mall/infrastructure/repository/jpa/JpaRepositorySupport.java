@@ -1,13 +1,13 @@
 package mall.infrastructure.repository.jpa;
 
-import mall.core.domain.Entity;
-import mall.core.domain.EntityNotExistException;
-import mall.core.domain.Persistable;
-import mall.core.domain.RepositorySupport;
-import mall.core.domain.query.PageQuery;
-import mall.core.domain.query.PageQueryResult;
-import mall.core.domain.query.SimpleQuery;
-import mall.core.transformation.ObjectTransformer;
+import mall.service.domain.Entity;
+import mall.service.domain.EntityNotExistException;
+import mall.service.domain.Persistable;
+import mall.service.domain.RepositorySupport;
+import mall.service.domain.query.PageQuery;
+import mall.service.domain.query.PageQueryResult;
+import mall.service.domain.query.SimpleQuery;
+import mall.service.transformation.ObjectTransformer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,7 @@
 package mall.system.service.domain.role;
 
 
-import mall.core.domain.Repository;
+import mall.service.domain.Repository;
 
 /**
  * @author walter

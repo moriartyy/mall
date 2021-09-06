@@ -1,7 +1,7 @@
 package mall.infrastructure.repository.mybatis.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import mall.core.domain.AuditableEntity;
+import mall.service.domain.AuditableEntity;
 import org.apache.ibatis.reflection.MetaObject;
 
 /**

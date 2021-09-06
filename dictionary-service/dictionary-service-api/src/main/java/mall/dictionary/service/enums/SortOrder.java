@@ -1,7 +1,7 @@
 package mall.dictionary.service.enums;
 
 import lombok.Getter;
-import mall.common.enums.EnumPlus;
+import mall.service.enums.EnumPlus;
 
 /**
  * @author walter

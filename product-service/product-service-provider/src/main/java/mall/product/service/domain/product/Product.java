@@ -2,7 +2,7 @@ package mall.product.service.domain.product;
 
 import lombok.Getter;
 import lombok.Setter;
-import mall.core.domain.Entity;
+import mall.service.domain.Entity;
 
 /**
  * @author walter

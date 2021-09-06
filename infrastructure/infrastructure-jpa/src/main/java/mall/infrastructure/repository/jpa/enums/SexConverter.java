@@ -1,6 +1,6 @@
 package mall.infrastructure.repository.jpa.enums;
 
-import mall.common.enums.Sex;
+import mall.service.enums.Sex;
 
 import javax.persistence.Converter;
 

@@ -1,6 +1,6 @@
 package mall.infrastructure.repository.jpa.enums;
 
-import mall.common.enums.Activity;
+import mall.service.enums.Activity;
 
 import javax.persistence.Converter;
 

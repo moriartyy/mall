@@ -1,8 +1,8 @@
 package mall.order.service.interfaces.controller;
 
 import lombok.RequiredArgsConstructor;
-import mall.core.eventing.EventPublisher;
 import mall.order.service.event.OrderCreatedEvent;
+import mall.service.eventing.EventPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import mall.common.enums.EnumPlus;
+import mall.service.enums.EnumPlus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

@@ -1,7 +1,7 @@
 package mall.system.service.infrastructure.jpa;
 
-import mall.common.enums.Activity;
-import mall.common.util.JsonUtils;
+import mall.service.enums.Activity;
+import mall.service.util.JsonUtils;
 import mall.system.service.domain.user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package mall.system.service.infrastructure.jpa;
 
-import mall.core.transformation.ObjectTransformer;
 import mall.infrastructure.repository.jpa.JpaRepositorySupport;
+import mall.service.transformation.ObjectTransformer;
 import mall.system.service.domain.user.User;
 import mall.system.service.domain.user.UserRepository;
 import mall.system.service.infrastructure.jpa.dao.JpaUserDao;
