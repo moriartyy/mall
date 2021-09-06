@@ -1,14 +1,15 @@
 package mall.system.service;
 
-import mall.system.service.config.SystemServiceApiConfig;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author walter
  */
-@SpringBootApplication(exclude = SystemServiceApiConfig.class)
+@EnableFeignClients
+@SpringBootApplication
 public class SystemServiceApplication {
 
     public static void main(String[] args) {

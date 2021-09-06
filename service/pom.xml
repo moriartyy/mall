@@ -15,7 +15,5 @@
         <module>service-core</module>
         <module>web-service-api</module>
         <module>web-service-core</module>
-        <module>rpc-api</module>
-        <module>rpc-core</module>
     </modules>
 </project>
