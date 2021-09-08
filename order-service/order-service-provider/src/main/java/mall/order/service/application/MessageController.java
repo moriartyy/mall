@@ -1,4 +1,4 @@
-package mall.order.service.interfaces.controller;
+package mall.order.service.application;
 
 import lombok.RequiredArgsConstructor;
 import mall.order.service.event.OrderCreatedEvent;

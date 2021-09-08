@@ -2,8 +2,8 @@ package mall.order.service.application;
 
 import lombok.RequiredArgsConstructor;
 import mall.order.service.application.assembler.OrderAssembler;
-import mall.order.service.domain.Order;
-import mall.order.service.domain.OrderRepository;
+import mall.order.service.domain.order.Order;
+import mall.order.service.domain.order.OrderRepository;
 import mall.order.service.dto.*;
 import mall.order.service.service.OrderService;
 import mall.service.domain.query.PageQuery;
@@ -12,14 +12,14 @@ import mall.service.domain.query.QueryHelper;
 import mall.service.dto.PageInfo;
 import mall.service.util.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.stream.Collectors;
 
 /**
  * @author walter
  */
-@Service
+@RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class OrderServiceImpl implements OrderService {
 

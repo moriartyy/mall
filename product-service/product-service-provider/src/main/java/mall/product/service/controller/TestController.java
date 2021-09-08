@@ -1,4 +1,4 @@
-package mall.product.service.interfaces.controller;
+package mall.product.service.controller;
 
 import io.swagger.annotations.Api;
 import lombok.Getter;

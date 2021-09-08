@@ -2,8 +2,8 @@
 //
 //import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 //import mall.infrastructure.mybatis.MybatisRepository;
-//import mall.order.service.domain.Order;
-//import mall.order.service.domain.OrderRepository;
+//import mall.order.service.domain.order.Order;
+//import mall.order.service.domain.order.OrderRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Component;
 //

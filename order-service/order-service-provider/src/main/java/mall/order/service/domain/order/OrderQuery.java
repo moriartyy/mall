@@ -1,4 +1,4 @@
-package mall.order.service.domain;
+package mall.order.service.domain.order;
 
 import lombok.Builder;
 import lombok.Data;

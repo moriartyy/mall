@@ -1,8 +1,8 @@
 package mall.order.service.infrastructure.mysql.repository;
 
 import mall.infrastructure.repository.mybatis.MybatisRepositorySupport;
-import mall.order.service.domain.Order;
-import mall.order.service.domain.OrderRepository;
+import mall.order.service.domain.order.Order;
+import mall.order.service.domain.order.OrderRepository;
 import mall.order.service.infrastructure.mysql.entity.OrderPO;
 import mall.order.service.infrastructure.mysql.mapper.OrderMapper;
 import mall.service.transformation.ObjectTransformer;
