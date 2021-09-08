@@ -7,14 +7,14 @@
     <artifactId>mall</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>service</module>
         <module>infrastructure</module>
         <module>dictionary-service</module>
         <module>order-service</module>
         <module>product-service</module>
         <module>gateway</module>
         <module>system-service</module>
-        <module>id-service</module>
-        <module>service</module>
+        <module>series-service</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

@@ -37,4 +37,26 @@ public class StringUtils {
     public static String upperCamelToUpperUnderscore(String str) {
         return CaseFormat.UPPER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, str);
     }
+
+    public static String pad(Object original, int paddedLength, char paddingChar, boolean left) {
+
+        if (!((original instanceof String) || (original instanceof Integer) || (original instanceof Long))) {
+            throw new IllegalArgumentException("original must be a string|integer|long");
+        }
+
+        String format = "%"
+                + (left ? "" : "-")
+                + ((' ' == paddingChar) ? "" : paddingChar)
+                + paddedLength
+                + ((original instanceof String) ? "s" : "d");
+        return String.format(format, original);
+    }
+
+    public static String padLeft(Object original, int paddedLength, char paddingChar) {
+        return pad(original, paddedLength, paddingChar, true);
+    }
+
+    public static String padRight(Object original, int paddedLength, char paddingChar) {
+        return pad(original, paddedLength, paddingChar, false);
+    }
 }
