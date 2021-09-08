@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Getter;
 import mall.service.domain.Entity;
 import mall.service.domain.RepositorySupport;
+import mall.service.domain.query.Criteria;
 import mall.service.domain.query.PageQuery;
 import mall.service.domain.query.PageQueryResult;
 import mall.service.domain.query.SimpleQuery;
@@ -23,7 +24,7 @@ import java.util.stream.Collectors;
  * @author walter
  */
 @Getter
-public class MybatisRepositorySupport<ID extends Serializable, E extends Entity<ID>, PO> extends RepositorySupport<ID, E, PO> {
+public abstract class MybatisRepositorySupport<ID extends Serializable, E extends Entity<ID>, PO> extends RepositorySupport<ID, E, PO> {
 
     private final BaseMapper<PO> mapper;
     private final Map<String, String> propertyToColumnMap;
@@ -40,6 +41,13 @@ public class MybatisRepositorySupport<ID extends Serializable, E extends Entity<
     @Override
     public void delete(ID id) {
         this.mapper.deleteById(id);
+    }
+
+    @Override
+    public void deleteAll(Criteria criteria) {
+        QueryWrapper<PO> queryWrapper = new QueryWrapper<>();
+        MybatisUtils.fillWithCriteria(queryWrapper, criteria, propertyToColumnMap);
+        this.mapper.delete(queryWrapper);
     }
 
     @Override

@@ -25,6 +25,8 @@ public interface Repository<ID extends Serializable, E extends Entity<ID>> {
 
     void delete(ID id);
 
+    void deleteAll(Criteria criteria);
+
     default Optional<E> findOne(Criteria criteria) {
         List<E> all = findAll(criteria, 1);
         return Optional.ofNullable(all.isEmpty() ? null : all.get(0));

@@ -4,6 +4,7 @@ import mall.service.domain.Entity;
 import mall.service.domain.EntityNotExistException;
 import mall.service.domain.Persistable;
 import mall.service.domain.RepositorySupport;
+import mall.service.domain.query.Criteria;
 import mall.service.domain.query.PageQuery;
 import mall.service.domain.query.PageQueryResult;
 import mall.service.domain.query.SimpleQuery;
@@ -54,6 +55,12 @@ public abstract class JpaRepositorySupport<ID extends Serializable, T extends En
     @Override
     public void delete(ID id) {
         this.dao.deleteById(id);
+        this.dao.flush();
+    }
+
+    @Override
+    public void deleteAll(Criteria criteria) {
+        this.dao.deleteInBatch(this.dao.findAll(JpaUtils.toSpecification(criteria)));
         this.dao.flush();
     }
 
