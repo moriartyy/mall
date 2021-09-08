@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author walter
@@ -24,22 +25,28 @@ public abstract class RepositorySupport<ID extends Serializable, E extends Entit
     private final ObjectTransformer objectTransformer;
     private final Class<E> entityClass;
     private final Class<PO> poClass;
+    private final boolean isPoMappingNeeded;
 
     protected RepositorySupport(ObjectTransformer objectTransformer) {
         this.objectTransformer = objectTransformer;
         Class<?>[] generics = ClassUtils.resolveGenericTypes(getClass(), RepositorySupport.class);
         this.entityClass = (Class<E>) generics[1];
         this.poClass = (Class<PO>) generics[2];
+        this.isPoMappingNeeded = poClass != entityClass;
     }
 
     @Override
     public void save(E entity) {
-        PO po = this.objectTransformer.map(entity, poClass);
+        PO po = convertToPO(entity);
         if (entity.isNew()) {
             doInsert(po);
         } else {
             doUpdate(po);
         }
+    }
+
+    private PO convertToPO(E entity) {
+        return isPoMappingNeeded ? this.objectTransformer.map(entity, poClass) : (PO) entity;
     }
 
     protected abstract void doUpdate(PO po);
@@ -59,7 +66,11 @@ public abstract class RepositorySupport<ID extends Serializable, E extends Entit
 
     @Override
     public Optional<E> getIfPresent(ID id) {
-        return doGetIfPresent(id).map(po -> this.objectTransformer.map(po, entityClass));
+        return doGetIfPresent(id).map(this::convertToEntity);
+    }
+
+    private E convertToEntity(PO po) {
+        return isPoMappingNeeded ? this.objectTransformer.map(po, entityClass) : (E) po;
     }
 
     protected abstract Optional<PO> doGetIfPresent(ID id);
@@ -92,7 +103,7 @@ public abstract class RepositorySupport<ID extends Serializable, E extends Entit
     protected abstract List<E> doSimpleQuery(SimpleQuery<E> query);
 
     protected List<E> convert(List<PO> poList) {
-        return getObjectTransformer().mapList(poList, getEntityClass());
+        return poList.stream().map(this::convertToEntity).collect(Collectors.toList());
     }
 
 }

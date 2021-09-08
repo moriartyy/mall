@@ -42,8 +42,12 @@ public class OrikaConfig {
 
         @Override
         public boolean canConvert(Type<?> sourceType, Type<?> destinationType) {
-            return ((sourceType.getRawType() == Integer.class) & (EnumPlus.class.isAssignableFrom(destinationType.getRawType())))
-                    || ((destinationType.getRawType() == Integer.class) & (EnumPlus.class.isAssignableFrom(sourceType.getRawType())));
+            return canConvert0(sourceType, destinationType)
+                    || canConvert0(destinationType, sourceType);
+        }
+
+        private boolean canConvert0(Type<?> sourceType, Type<?> destinationType) {
+            return (sourceType.getRawType() == Integer.class) & (EnumPlus.class.isAssignableFrom(destinationType.getRawType()));
         }
     }
 }
